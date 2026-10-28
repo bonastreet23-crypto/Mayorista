@@ -528,6 +528,7 @@ pool("med",     "Medias",                     l => l.name === "Medias Nike");
 pool("zap",     "Zapatillas",                 l => l.name === "Nike Retro Running");
 
 const COMBOS = [
+  {id:"c7", tag:"Shorts",     name:"Pack Short Diamond x5", blurb:"5 shorts importados a $20.000 cada uno. Elegís colores y talles entre los que hay.", items:[["dia",5]], fixed:100000},
   {id:"c1", tag:"Sportwear",  name:"Sport Start",  blurb:"Lo que más sale en deportivo: remeras NBA y shorts para arrancar.", items:[["nbaRem",3],["nbaShort",3]]},
   {id:"c2", tag:"Sportwear",  name:"Sport Jordan", blurb:"Remeras Jordan más short Diamond importado. Combo para el feed.",   items:[["nbaRem",5],["dia",5]]},
   {id:"c3", tag:"Streetwear", name:"Street Start", blurb:"Remeras boxy y bermudas jogging: el fit básico de todos los días.", items:[["boxy",3],["jogB",3]]},
@@ -538,6 +539,7 @@ const COMBOS = [
 const tierIdx = u => u >= 20 ? 2 : u >= 10 ? 1 : 0;
 function comboAt(c, ti) {
   const u = c.items.reduce((s, [, q]) => s + q, 0);
+  if (c.fixed) { const list = c.items.reduce((s, [k, q]) => s + POOLS[k].list * q, 0); return {u, tier:u, base:c.fixed, final:c.fixed, list, disc:false}; }   // pack con precio fijo (27/10: shorts x5 $20.000 c/u)
   const base = c.items.reduce((s, [k, q]) => s + POOLS[k].t[ti] * q, 0);
   const final = base > COMBO_THRESHOLD ? Math.round(base * (1 - COMBO_DISCOUNT) / 100) * 100 : base;
   const list = c.items.reduce((s, [k, q]) => s + POOLS[k].list * q, 0);
