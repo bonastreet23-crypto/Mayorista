@@ -1,5 +1,8 @@
 <title>Catálogo Mayorista Bona Street</title>
 <meta name="claude:viewport-fit-sides" content="cover">
+<!-- Meta Pixel: PIXEL BONA STREET -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2028106831270658');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2028106831270658&ev=PageView&noscript=1"/></noscript>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;800;900&family=Noto+Sans+Mono:wght@500;700&display=swap">
@@ -675,8 +678,11 @@ function paintCards() {
 }
 
 /* ====== BARRA + REFRESH ====== */
+let _pxU = 0;   /* eventos del píxel de Meta */
+function pxTrack(e, p) { try { window.fbq && fbq('track', e, p || {}); } catch (x) {} }
 function refresh() {
   const lu = looseUnits(), cu = comboUnits(), total = grandTotal();
+  { const tu = lu + cu; if (tu > _pxU) pxTrack('AddToCart', {value: total, currency: 'ARS', num_items: tu}); _pxU = tu; }
   const tu = lu + cu, nc = Object.values(state.combos).reduce((s, n) => s + n, 0);
   $("barS").textContent = tu ? tu + (tu === 1 ? " prenda" : " prendas") + (tu >= 3 ? " · precio x" + [3,10,20][tierIdx(tu)] : "") : "0 prendas";
   $("barT").textContent = money(total);
@@ -824,4 +830,5 @@ $("q").addEventListener("input", e => { state.q = e.target.value; renderGrid(); 
 /* ====== INICIO ====== */
 $("stockDate").textContent = STOCK_DATE;
 renderStairs(); renderCombos(); renderTabs(); renderGrid(); refresh();
+document.addEventListener('click', e => { const a = e.target.closest('a[href^="https://wa.me"]'); if (a && !a.classList.contains('is-off') && totalUnits() > 0) pxTrack('InitiateCheckout', {value: grandTotal(), currency: 'ARS', num_items: totalUnits()}); });
 </script>
