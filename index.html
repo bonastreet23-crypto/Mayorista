@@ -731,6 +731,7 @@ function nextTierInfo() {
   const save = orderTotalAt(ti) - orderTotalAt(next);
   return {warn:false, text:`Sumá ${need} ${need === 1 ? "prenda" : "prendas"} más y todo tu pedido pasa a precio x${[3,10,20][next]}. Con lo que ya elegiste, hoy te ahorrarías ${money(save)}.`};
 }
+const SRC = (() => { try { const q = new URLSearchParams(location.search), s = q.get("utm_source") || q.get("s"); if (s) sessionStorage.setItem("src", s); return sessionStorage.getItem("src") || ""; } catch (e) { return ""; } })();
 function orderMessage() {
   const ti = priceTier(), out = ["Hola Bona Street! Quiero hacer este pedido mayorista:", ""];
   const cs = COMBOS.filter(c => state.combos[c.id]);
@@ -748,6 +749,7 @@ function orderMessage() {
   }
   out.push(`Precio x${[3,10,20][ti]} (${totalUnits()} prendas en total)`);
   out.push("TOTAL: " + money(grandTotal()));
+  if (SRC) out.push("Origen: " + SRC);
   out.push("Pago por transferencia o efectivo. Retiro / envío a: ");
   out.push("");
   out.push("— Para despachar tu pedido: realizá el pago al alias *bonastreet* (cuenta de Mercado Pago a nombre de Alba Lucía Segovia Noguera) así generamos tu etiqueta de envío. ¡Tu pedido sale dentro de las próximas 24 hs!");
