@@ -1,284 +1,347 @@
-<title>Catálogo Mayorista Bona Street</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Bona Street Mayorista</title>
 <!-- Meta Pixel: PIXEL BONA STREET -->
 <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2028106831270658');fbq('track','PageView');</script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2028106831270658&ev=PageView&noscript=1"/></noscript>
+<meta name="description" content="Compra mayorista de indumentaria urbana desde 3 unidades surtidas. Todos los modelos en un solo pedido.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;800;900&family=Noto+Sans+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800;900&family=Noto+Sans+Mono:wght@500;700&display=swap">
 <style>
-/* Layout concept: remito/etiqueta de precios. Hero oscuro con escalera de precios x3 / x10 / x20,
-   combos como paquetes cerrados, catálogo en grilla de tarjetas con escalera de precios viva
-   que se ilumina según las unidades del pedido. */
 :root{
   --bg:#E8EAE9; --surface:#FFFFFF; --ink:#01283D; --muted:#4B6373; --line:#C5D0CB;
   --green:#2D6C52; --green-ink:#FFFFFF; --green-text:#2D6C52;
-  --soft:#BBC9C3; --band:#01283D; --band-ink:#E8EAE9; --band-muted:#A9BDC6; --band-accent:#7FD6AE;
-  --tile-S:#BBC9C3; --tile-S-ink:#01283D;
-  --tile-P:#01283D; --tile-P-ink:#E8EAE9;
-  --tile-C:#2D6C52; --tile-C-ink:#FFFFFF;
-  --tile-A:#D6DDDA; --tile-A-ink:#01283D;
-  --warn:#8A4B00; --warn-bg:#F3E3C8;
-  --overlay:rgba(1,40,61,.58);
-  --font:'Noto Sans',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  --soft:#BBC9C3; --navy:#01283D; --navy-ink:#E8EAE9; --navy-muted:#A9BDC6; --accent:#7FD6AE;
+  --warn:#8A4B00; --warn-bg:#F3E3C8; --overlay:rgba(1,40,61,.6);
+  --font:'Archivo',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
   --mono:'Noto Sans Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --hh:60px;
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#06161F; --surface:#0B2A3B; --ink:#E8EAE9; --muted:#9DB2BC; --line:#1B4155;
-    --green-text:#7FD6AE; --soft:#2A4A52; --band:#01283D;
-    --tile-S:#2A4A52; --tile-S-ink:#E8EAE9;
-    --tile-P:#01283D; --tile-P-ink:#E8EAE9;
-    --tile-C:#2D6C52; --tile-C-ink:#FFFFFF;
-    --tile-A:#16384B; --tile-A-ink:#E8EAE9;
-    --warn:#F0C27A; --warn-bg:#3A2D14; --overlay:rgba(0,10,16,.7);
-    color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#06161F; --surface:#0B2A3B; --ink:#E8EAE9; --muted:#9DB2BC; --line:#1B4155;
-  --green-text:#7FD6AE; --soft:#2A4A52; --band:#01283D;
-  --tile-S:#2A4A52; --tile-S-ink:#E8EAE9;
-  --tile-P:#01283D; --tile-P-ink:#E8EAE9;
-  --tile-C:#2D6C52; --tile-C-ink:#FFFFFF;
-  --tile-A:#16384B; --tile-A-ink:#E8EAE9;
-  --warn:#F0C27A; --warn-bg:#3A2D14; --overlay:rgba(0,10,16,.7);
-  color-scheme:dark;
-}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#06161F; --surface:#0B2A3B; --ink:#E8EAE9; --muted:#9DB2BC; --line:#1B4155; --green-text:#7FD6AE; --soft:#16384B;
+  --warn:#F0C27A; --warn-bg:#3A2D14; --overlay:rgba(0,10,16,.72); color-scheme:dark}}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font:400 15px/1.5 var(--font);-webkit-text-size-adjust:100%;overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--band)}
-h1,h2,h3,p{margin:0}
-a{color:inherit}
-button{font:inherit;color:inherit;cursor:pointer}
-:focus-visible{outline:3px solid var(--band-accent);outline-offset:2px}
-.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--hh) + 8px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.5 var(--font);-webkit-text-size-adjust:100%;overflow-x:hidden}
+h1,h2,h3,p{margin:0}a{color:inherit}button{font:inherit;color:inherit;cursor:pointer}
+img{max-width:100%;display:block}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:max(18px,env(safe-area-inset-left,0px))}
 .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
-.eyebrow{font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:48px;padding:0 1.4rem;border:2px solid var(--green);background:var(--green);color:var(--green-ink);font-weight:800;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-radius:6px}
-.btn:hover{filter:brightness(1.08)}
+.eyebrow{font-size:.72rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.eyebrow.g{color:var(--green-text)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:50px;padding:0 1.5rem;border:2px solid var(--green);background:var(--green);color:var(--green-ink);font-weight:800;font-size:.82rem;letter-spacing:.09em;text-transform:uppercase;text-decoration:none;border-radius:8px;transition:transform .15s,filter .15s}
+.btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
 .btn[disabled],.btn.is-off{opacity:.45;pointer-events:none}
-.btn.ghost{background:transparent;color:var(--band-ink);border-color:var(--band-muted)}
+.btn.ghost{background:transparent;color:var(--navy-ink);border-color:rgba(232,234,233,.55)}
 .btn.line{background:transparent;color:var(--ink);border-color:var(--ink)}
 .btn.small{min-height:40px;padding:0 1rem;font-size:.74rem}
 
-/* header */
-.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--band);color:var(--band-ink)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px}
-.brand{display:flex;align-items:baseline;gap:.6rem;text-decoration:none}
-.brand b{font-weight:900;letter-spacing:.06em;font-size:1.05rem}
-.brand span{font-size:.66rem;font-weight:800;letter-spacing:.16em;color:var(--band-accent)}
-.top nav{display:flex;align-items:center;gap:6px}
-.top nav a{font-size:.74rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:10px 8px;color:var(--band-muted)}
-.top nav a:hover{color:var(--band-ink)}
-.cartbtn{display:inline-flex;align-items:center;gap:.5rem;min-height:40px;padding:0 .9rem;border:2px solid var(--band-accent);background:transparent;color:var(--band-ink);font-weight:800;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;border-radius:6px}
-.cartbtn .n{min-width:1.6em;padding:0 .35em;background:var(--band-accent);color:#01283D;border-radius:99px;text-align:center;font-family:var(--mono);font-weight:700}
-@media (max-width:560px){.top nav a{display:none}}
+/* ---------- header ---------- */
+.top{position:fixed;inset:0 0 auto;z-index:50;height:var(--hh);background:rgba(1,40,61,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--navy-ink);transition:background .25s}
+.top.solid{background:rgba(1,40,61,.96)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:100%}
+.brand{display:flex;align-items:baseline;gap:.6rem;text-decoration:none;white-space:nowrap}
+.brand b{font-weight:900;letter-spacing:.1em;font-size:1.05rem}
+.brand span{font-size:.64rem;font-weight:800;letter-spacing:.2em;color:var(--accent)}
+.top nav{display:flex;align-items:center;gap:4px}
+.top nav a{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;padding:10px 9px;color:var(--navy-muted)}
+.top nav a:hover{color:#fff}
+.cartbtn{display:inline-flex;align-items:center;gap:.5rem;min-height:40px;padding:0 .9rem;border:2px solid var(--accent);background:transparent;color:var(--navy-ink);font-weight:800;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;border-radius:8px}
+.cartbtn .n{min-width:1.6em;padding:0 .35em;background:var(--accent);color:var(--navy);border-radius:99px;text-align:center;font-family:var(--mono);font-weight:700}
+@media (max-width:640px){.top nav a{display:none}}
 
-/* hero */
-.hero{background:var(--band);color:var(--band-ink);padding-block:clamp(32px,6vw,72px) clamp(28px,5vw,56px)}
-.hero .eyebrow{color:var(--band-accent)}
-.hero h1{margin-top:14px;font-weight:900;text-transform:uppercase;letter-spacing:-.025em;line-height:.98;font-size:clamp(2.3rem,9vw,5rem);text-wrap:balance;max-width:14ch}
-.hero h1 em{font-style:normal;color:var(--band-accent)}
-.hero .lead{margin-top:18px;max-width:52ch;color:var(--band-muted);font-size:1.05rem}
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;background:var(--navy);color:var(--navy-ink);overflow:hidden;display:flex;align-items:flex-end;isolation:isolate}
+.hero-bg{position:absolute;inset:0;z-index:-3;background:radial-gradient(120% 90% at 20% 10%,#0a4260 0%,#01283D 55%,#00131d 100%)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:var(--bgimg) center/cover no-repeat;opacity:.55;mix-blend-mode:screen}
+.wall{position:absolute;inset:-14% -12%;z-index:-2;display:grid;grid-template-columns:repeat(6,1fr);gap:12px;transform:translate3d(0,var(--py,0px),0) rotate(-8deg) scale(1.05);will-change:transform}
+.wall .col{display:flex;flex-direction:column;gap:12px;animation:drift var(--t,70s) linear infinite}
+.wall .col:nth-child(even){animation-direction:reverse}
+.wall img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.45);filter:saturate(.95) brightness(.88)}
+@keyframes drift{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+@media (max-width:760px){.wall{grid-template-columns:repeat(4,1fr);inset:-10% -34%;gap:8px}.wall .col{gap:8px}}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(1,40,61,.94) 0%,rgba(1,40,61,.78) 38%,rgba(1,40,61,.25) 100%),linear-gradient(0deg,rgba(1,24,37,.96) 0%,rgba(1,24,37,0) 45%)}
+@media (max-width:760px){.hero::after{background:linear-gradient(0deg,rgba(1,24,37,.97) 0%,rgba(1,40,61,.82) 55%,rgba(1,40,61,.45) 100%)}}
+.hero .wrap{width:100%;padding-block:calc(var(--hh) + 40px) clamp(36px,7vh,80px)}
+.hero .eyebrow{color:var(--accent)}
+.hero h1{margin-top:14px;font-weight:900;text-transform:uppercase;letter-spacing:-.03em;line-height:.95;font-size:clamp(2.7rem,10.5vw,6.2rem);max-width:12ch;text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.promise{display:inline-flex;align-items:center;gap:.7rem;margin-top:22px;padding:10px 16px 10px 12px;border-radius:99px;background:rgba(232,234,233,.12);border:1px solid rgba(232,234,233,.28);backdrop-filter:blur(6px);font-weight:800;letter-spacing:.06em;text-transform:uppercase;font-size:.8rem}
+.promise b{display:inline-grid;place-items:center;min-width:2.1em;height:2.1em;border-radius:99px;background:var(--green);color:#fff;font-family:var(--mono)}
+.hero .lead{margin-top:16px;max-width:46ch;color:var(--navy-muted);font-size:1.06rem}
 .cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
-.stairs{margin-top:clamp(28px,5vw,48px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.stair{border:1px solid rgba(169,189,198,.35);border-radius:8px;padding:14px 12px 12px;display:flex;flex-direction:column;gap:2px;min-width:0}
-.stair .q{font-family:var(--mono);font-weight:700;font-size:.78rem;color:var(--band-accent);letter-spacing:.06em}
-.stair .p{font-family:var(--mono);font-weight:700;font-size:clamp(1.05rem,4.6vw,1.9rem);letter-spacing:-.02em}
-.stair .off{font-size:.74rem;font-weight:800;color:var(--band-ink);letter-spacing:.04em}
-.stair .was{font-size:.72rem;color:var(--band-muted);font-family:var(--mono)}
-.stairs-note{margin-top:10px;font-size:.78rem;color:var(--band-muted)}
-.stair:nth-child(2){transform:translateY(-6px)}
-.stair:nth-child(3){transform:translateY(-12px)}
+.scrollcue{display:flex;align-items:center;gap:10px;margin-top:34px;font-size:.7rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--navy-muted)}
+.scrollcue i{display:block;width:1px;height:34px;background:linear-gradient(var(--accent),transparent);animation:cue 1.8s ease-in-out infinite}
+@keyframes cue{0%{transform:scaleY(.2);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(.2);transform-origin:bottom}}
 
-/* benefits */
-.benefits{background:var(--soft);color:var(--tile-S-ink)}
-:root[data-theme="dark"] .benefits{color:var(--ink)}
-.benefits ul{list-style:none;margin:0;padding:14px 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px}
-.benefits li{font-size:.74rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;line-height:1.3}
-@media (min-width:820px){.benefits ul{grid-template-columns:repeat(4,minmax(0,1fr))}}
+/* ---------- cinta ---------- */
+.ticker{background:var(--green);color:#fff;overflow:hidden;padding-block:13px;white-space:nowrap}
+.ticker div{display:inline-flex;gap:2.2rem;padding-right:2.2rem;animation:tick 38s linear infinite;font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem}
+.ticker span::after{content:"✦";margin-left:2.2rem;opacity:.7}
+@keyframes tick{to{transform:translateX(-50%)}}
 
-/* sections */
-section.block{padding-block:clamp(36px,6vw,68px)}
-.sec-head{display:flex;flex-direction:column;gap:8px;margin-bottom:22px}
-.sec-head h2{font-weight:900;text-transform:uppercase;letter-spacing:-.015em;line-height:1.02;font-size:clamp(1.7rem,5.4vw,2.8rem);text-wrap:balance}
-.sec-head p{color:var(--muted);max-width:60ch}
-.eyebrow.g{color:var(--green-text)}
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+
+/* ---------- secciones ---------- */
+section.block{padding-block:clamp(48px,8vw,110px)}
+.sec-head{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.sec-head h2{font-weight:900;text-transform:uppercase;letter-spacing:-.025em;line-height:.98;font-size:clamp(2rem,6.4vw,3.8rem);text-wrap:balance;max-width:18ch}
+.sec-head p{color:var(--muted);max-width:58ch}
+
+/* escalera */
+.stairs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.stair{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 14px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.stair:nth-child(3){background:var(--navy);color:var(--navy-ink);border-color:var(--navy)}
+.stair .q{font-family:var(--mono);font-weight:700;font-size:.78rem;color:var(--green-text);letter-spacing:.06em}
+.stair:nth-child(3) .q{color:var(--accent)}
+.stair .p{font-family:var(--mono);font-weight:700;font-size:clamp(1.2rem,5vw,2.4rem);letter-spacing:-.03em;line-height:1.05}
+.stair .off{font-size:.78rem;font-weight:800}
+.stair .was{font-size:.72rem;color:var(--muted);font-family:var(--mono)}
+.stair:nth-child(3) .was{color:var(--navy-muted)}
+.stairs-note{margin-top:12px;font-size:.8rem;color:var(--muted)}
+.how3{display:grid;grid-template-columns:1fr;gap:12px;margin-top:34px}
+@media (min-width:760px){.how3{grid-template-columns:repeat(3,1fr)}}
+.how3 div{padding:20px;border-radius:14px;background:var(--soft);display:flex;flex-direction:column;gap:6px}
+.how3 .n{font-family:var(--mono);font-weight:700;font-size:2rem;color:var(--green-text);line-height:1}
+.how3 b{font-weight:800;text-transform:uppercase;letter-spacing:.02em}
+.how3 span{font-size:.9rem;color:var(--ink);opacity:.8}
+
+/* historias apiladas */
+.stack{display:flex;flex-direction:column;gap:0}
+.story{position:sticky;top:calc(var(--hh) + 6px);min-height:min(78svh,640px);border-radius:22px;overflow:hidden;margin-bottom:18px;display:grid;grid-template-columns:1fr;box-shadow:0 -14px 40px rgba(1,40,61,.18)}
+@media (min-width:860px){.story{grid-template-columns:1fr 1.15fr}}
+.story .tx{padding:clamp(24px,4vw,52px);display:flex;flex-direction:column;justify-content:flex-end;gap:12px}
+.story .tx h3{font-weight:900;text-transform:uppercase;letter-spacing:-.03em;line-height:.92;font-size:clamp(2.2rem,7vw,4.4rem)}
+.story .tx p{max-width:34ch;opacity:.86}
+.story .tx .count{font-family:var(--mono);font-size:.82rem;opacity:.8}
+.story .ph{position:relative;min-height:260px;overflow:hidden}
+.story .ph img{position:absolute;width:44%;aspect-ratio:3/4;object-fit:cover;border-radius:14px;box-shadow:0 18px 44px rgba(0,0,0,.35);transform:translate3d(0,var(--sy,0px),0) rotate(var(--r,0deg));will-change:transform}
+.s1{background:var(--navy);color:var(--navy-ink)}
+.s2{background:var(--soft);color:var(--navy)}
+.s3{background:var(--green);color:#fff}
+.s4{background:var(--surface);color:var(--navy);border:1px solid var(--line)}
+.story .btn.line{border-color:currentColor;color:inherit}
+.s1 .btn.line,.s3 .btn.line{color:#fff}
 
 /* combos */
 .combos{display:grid;grid-template-columns:1fr;gap:14px}
 @media (min-width:700px){.combos{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (min-width:1040px){.combos{grid-template-columns:repeat(3,minmax(0,1fr))}}
-.combo{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.combo{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0}
 .combo.big{border:2px solid var(--green)}
-.combo .tag{align-self:flex-start;font-size:.66rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:4px 9px;border-radius:99px;background:var(--soft);color:var(--tile-S-ink)}
-:root[data-theme="dark"] .combo .tag{color:var(--ink)}
-.combo h3{font-weight:900;text-transform:uppercase;font-size:1.5rem;letter-spacing:-.01em;line-height:1.05}
+.combo .tag{align-self:flex-start;font-size:.66rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;border-radius:99px;background:var(--soft);color:var(--navy)}
+.combo h3{font-weight:900;text-transform:uppercase;font-size:1.6rem;letter-spacing:-.015em;line-height:1.02}
 .combo .blurb{color:var(--muted);font-size:.9rem}
-.combo ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.combo ul{list-style:none;margin:0;padding:0}
 .combo li{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-top:1px dashed var(--line);font-size:.9rem}
 .combo li b{font-family:var(--mono);font-weight:700;white-space:nowrap}
-.combo .meta{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.78rem;color:var(--muted)}
-.combo .meta span{font-family:var(--mono)}
+.combo .meta{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.78rem;color:var(--muted);font-family:var(--mono)}
 .combo .price{margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.combo .price .big{font-family:var(--mono);font-weight:700;font-size:1.9rem;letter-spacing:-.03em;line-height:1}
+.combo .price .big{font-family:var(--mono);font-weight:700;font-size:2rem;letter-spacing:-.03em;line-height:1}
 .combo .price .small{font-size:.76rem;color:var(--muted);text-align:right}
-.combo .price .small s{font-family:var(--mono)}
-.combo .actions{display:flex;gap:8px;align-items:center}
-.combo .actions .btn{flex:1}
-.combo .incart{font-size:.78rem;font-weight:800;color:var(--green-text);letter-spacing:.04em;min-height:1.2em}
+.combo .actions .btn{width:100%}
+.combo .incart{font-size:.78rem;font-weight:800;color:var(--green-text);min-height:1.2em}
 
-/* tools */
-.tools{position:sticky;top:calc(56px + env(safe-area-inset-top,0px));z-index:40;background:var(--bg);padding-block:10px 8px;border-bottom:1px solid var(--line)}
-.tabs,.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+/* catálogo */
+.tools{position:sticky;top:var(--hh);z-index:40;background:var(--bg);padding-block:10px 8px;border-bottom:1px solid var(--line)}
+.tabs,.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
 .tabs::-webkit-scrollbar,.chips::-webkit-scrollbar{display:none}
-.tab{flex:none;min-height:40px;padding:0 14px;border:2px solid var(--ink);background:transparent;font-weight:800;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;border-radius:6px;white-space:nowrap}
+.tab{flex:none;min-height:40px;padding:0 14px;border:2px solid var(--ink);background:transparent;font-weight:800;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;border-radius:8px;white-space:nowrap}
 .tab[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
 .tab .c{font-family:var(--mono);font-weight:500;opacity:.7;margin-left:.4em}
 .chips{margin-top:8px}
-.chip{flex:none;min-height:34px;padding:0 12px;border:1px solid var(--line);background:var(--surface);font-size:.8rem;font-weight:600;border-radius:99px;white-space:nowrap}
-.chip[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:var(--green-ink)}
+.chip{flex:none;min-height:34px;padding:0 13px;border:1px solid var(--line);background:var(--surface);font-size:.8rem;font-weight:600;border-radius:99px;white-space:nowrap}
+.chip[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#fff}
 .search{margin-top:8px;display:flex}
-.search input{flex:1;min-width:0;min-height:42px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:0 12px;border-radius:6px;font:inherit}
-.search input::placeholder{color:var(--muted)}
-
-/* grid */
+.search input{flex:1;min-width:0;min-height:42px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:0 12px;border-radius:8px;font:inherit}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
 @media (min-width:720px){.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}}
 @media (min-width:1040px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
-.tile{position:relative;aspect-ratio:4/5;max-width:100%;display:flex;flex-direction:column;justify-content:space-between;padding:12px;overflow:hidden}
-.tile.n-S{background:var(--tile-S);color:var(--tile-S-ink)}
-.tile.n-P{background:var(--tile-P);color:var(--tile-P-ink)}
-.tile.n-C{background:var(--tile-C);color:var(--tile-C-ink)}
-.tile.n-A{background:var(--tile-A);color:var(--tile-A-ink)}
-.tile .tt{font-size:.62rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;opacity:.8}
-.tile .tn{font-weight:900;text-transform:uppercase;letter-spacing:-.02em;line-height:.95;font-size:clamp(1.05rem,4.6vw,1.6rem);overflow-wrap:anywhere;text-wrap:balance}
-.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.tile .stk{position:absolute;right:10px;top:10px;font-family:var(--mono);font-size:.68rem;font-weight:700;background:var(--surface);color:var(--ink);padding:3px 7px;border-radius:99px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.tile{position:relative;aspect-ratio:4/5;display:flex;flex-direction:column;justify-content:space-between;padding:12px;overflow:hidden}
+.tile.n-S{background:#BBC9C3;color:#01283D}.tile.n-P{background:#01283D;color:#E8EAE9}.tile.n-C{background:#2D6C52;color:#fff}.tile.n-A{background:#D6DDDA;color:#01283D}
+.tile .tt{font-size:.62rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;opacity:.8;position:relative;z-index:1}
+.tile .tn{font-weight:900;text-transform:uppercase;letter-spacing:-.02em;line-height:.95;font-size:clamp(1.05rem,4.6vw,1.6rem);overflow-wrap:anywhere;position:relative;z-index:1}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.card:hover .tile img{transform:scale(1.04)}
+.tile .stk{position:absolute;right:10px;top:10px;z-index:2;font-family:var(--mono);font-size:.68rem;font-weight:700;background:var(--surface);color:var(--ink);padding:3px 8px;border-radius:99px}
 .card .info{padding:12px;display:flex;flex-direction:column;gap:10px;flex:1;min-width:0}
-.card h3{font-size:.92rem;font-weight:800;line-height:1.2;overflow-wrap:anywhere}
+.card h3{font-size:.95rem;font-weight:800;line-height:1.2;overflow-wrap:anywhere}
 .card .sub{font-size:.74rem;color:var(--muted);margin-top:2px}
 .ladder{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}
-.rung{border:1px solid var(--line);border-radius:6px;padding:5px 2px 4px;text-align:center;display:flex;flex-direction:column;line-height:1.15;min-width:0}
-.rung b{font-family:var(--mono);font-size:.62rem;font-weight:700;color:var(--muted);letter-spacing:.04em}
+.rung{border:1px solid var(--line);border-radius:7px;padding:5px 2px 4px;text-align:center;display:flex;flex-direction:column;line-height:1.15;min-width:0}
+.rung b{font-family:var(--mono);font-size:.62rem;font-weight:700;color:var(--muted)}
 .rung span{font-family:var(--mono);font-weight:700;font-size:.78rem;letter-spacing:-.04em}
-.rung.on{background:var(--green);border-color:var(--green);color:var(--green-ink)}
-.rung.on b{color:var(--green-ink);opacity:.85}
+.rung.on{background:var(--green);border-color:var(--green);color:#fff}.rung.on b{color:#fff;opacity:.85}
 .card .inbag{font-size:.74rem;font-weight:800;color:var(--green-text);min-height:1.1em}
 .card .btn{width:100%;margin-top:auto}
-.photolink{font-size:.78rem;font-weight:800;color:var(--green-text);text-decoration:underline;text-underline-offset:3px;margin-top:auto}
-.photolink+.btn{margin-top:0}
 .empty{padding:40px 0;color:var(--muted);text-align:center}
 
-/* steps */
+/* pasos */
 .steps{list-style:none;margin:0;padding:0;display:grid;gap:12px;grid-template-columns:1fr}
 @media (min-width:720px){.steps{grid-template-columns:repeat(4,minmax(0,1fr))}}
-.steps li{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px}
-.steps .n{font-family:var(--mono);font-weight:700;font-size:1.4rem;color:var(--green-text);line-height:1}
+.steps li{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+.steps .n{font-family:var(--mono);font-weight:700;font-size:1.5rem;color:var(--green-text);line-height:1}
 .steps b{display:block;font-weight:800;margin-bottom:2px}
 .steps span{font-size:.88rem;color:var(--muted)}
-.curva{margin-top:14px;padding:16px;border:2px dashed var(--green);border-radius:10px;font-size:.92rem}
-.curva b{font-weight:800}
+.curva{margin-top:14px;padding:16px;border:2px dashed var(--green);border-radius:14px;font-size:.92rem}
 
-/* footer */
-footer{background:var(--band);color:var(--band-ink);padding-block:36px 120px}
-footer h2{font-weight:900;text-transform:uppercase;letter-spacing:-.015em;line-height:1;font-size:clamp(1.6rem,5.4vw,2.6rem);max-width:18ch;text-wrap:balance}
-footer p{margin-top:14px;color:var(--band-muted);max-width:56ch;font-size:.92rem}
-footer .cta-row{margin-top:20px}
-footer small{display:block;margin-top:22px;color:var(--band-muted);font-size:.74rem}
+/* manifiesto + footer */
+.manifesto{background:var(--navy);color:var(--navy-ink);padding-block:clamp(54px,9vw,120px);position:relative;overflow:hidden}
+.manifesto .eyebrow{color:var(--accent)}
+.manifesto .mf{margin-top:14px;font-weight:900;text-transform:uppercase;letter-spacing:-.03em;line-height:.96;font-size:clamp(2rem,7.4vw,4.6rem);max-width:20ch;text-wrap:balance}
+.manifesto .mf em{font-style:normal;background:var(--green);color:#fff;padding:0 .16em;border-radius:6px}
+.manifesto .mf-sub{margin-top:18px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;font-size:.8rem;color:var(--navy-muted)}
+footer{background:#01182a;color:var(--navy-ink);padding-block:44px 130px}
+footer h2{font-weight:900;text-transform:uppercase;letter-spacing:-.02em;line-height:1;font-size:clamp(1.7rem,5.4vw,2.8rem);max-width:18ch;text-wrap:balance}
+footer p{margin-top:14px;color:var(--navy-muted);max-width:58ch;font-size:.92rem}
+footer small{display:block;margin-top:24px;color:var(--navy-muted);font-size:.74rem}
 
-/* bar */
-.bar{position:fixed;left:0;right:0;bottom:0;z-index:55;background:var(--band);color:var(--band-ink);padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));border-top:2px solid var(--band-accent);transform:translateY(110%);transition:transform .2s ease}
+/* barra y hojas */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:55;background:var(--navy);color:var(--navy-ink);padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));border-top:2px solid var(--accent);transform:translateY(110%);transition:transform .25s ease}
 .bar.show{transform:none}
-.bar .in{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.bar .in{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .bar .t{display:flex;flex-direction:column;line-height:1.15;min-width:0}
-.bar .t small{font-size:.72rem;color:var(--band-muted);font-weight:600}
+.bar .t small{font-size:.72rem;color:var(--navy-muted);font-weight:600}
 .bar .t b{font-family:var(--mono);font-weight:700;font-size:1.2rem}
-
-/* sheets */
 .ov{position:fixed;inset:0;z-index:70;background:var(--overlay);display:none}
 .ov.open{display:block}
-.sheet{position:absolute;left:0;right:0;bottom:0;max-height:90%;overflow-y:auto;background:var(--bg);color:var(--ink);border-radius:14px 14px 0 0;padding:18px max(16px,env(safe-area-inset-right,0px)) calc(18px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));margin:0 auto;max-width:620px}
-@media (min-width:700px){.sheet{bottom:auto;top:50%;transform:translateY(-50%);border-radius:14px;max-height:86%}}
+.sheet{position:absolute;left:0;right:0;bottom:0;max-height:90%;overflow-y:auto;background:var(--bg);color:var(--ink);border-radius:18px 18px 0 0;padding:18px max(16px,env(safe-area-inset-right,0px)) calc(18px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));margin:0 auto;max-width:620px}
+@media (min-width:700px){.sheet{bottom:auto;top:50%;transform:translateY(-50%);border-radius:18px;max-height:86%}}
 .sheet .hd{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}
-.sheet .hd h3{font-weight:900;text-transform:uppercase;font-size:1.3rem;line-height:1.05;letter-spacing:-.01em}
+.sheet .hd h3{font-weight:900;text-transform:uppercase;font-size:1.3rem;line-height:1.05}
 .sheet .hd p{font-size:.8rem;color:var(--muted);margin-top:2px}
-.x{flex:none;width:40px;height:40px;border:2px solid var(--ink);background:transparent;border-radius:6px;font-size:1.2rem;line-height:1}
+.x{flex:none;width:40px;height:40px;border:2px solid var(--ink);background:transparent;border-radius:8px;font-size:1.2rem;line-height:1}
 .vrow{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;border-top:1px solid var(--line)}
-.vrow .l{min-width:0}
-.vrow .l b{font-weight:800;display:block;overflow-wrap:anywhere}
-.vrow .l small{font-size:.74rem;color:var(--muted)}
+.vrow .l{min-width:0}.vrow .l b{font-weight:800;display:block;overflow-wrap:anywhere}.vrow .l small{font-size:.74rem;color:var(--muted)}
 .stp{display:inline-flex;align-items:center;gap:6px;flex:none}
-.stp button{width:40px;height:40px;border:2px solid var(--ink);background:var(--surface);border-radius:6px;font-size:1.2rem;font-weight:800;line-height:1}
+.stp button{width:40px;height:40px;border:2px solid var(--ink);background:var(--surface);border-radius:8px;font-size:1.2rem;font-weight:800;line-height:1}
 .stp button:disabled{opacity:.35;cursor:not-allowed}
 .stp output{min-width:2ch;text-align:center;font-family:var(--mono);font-weight:700;font-size:1.05rem}
 .sum{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 0 4px;border-top:2px solid var(--ink);margin-top:6px}
 .sum b{font-family:var(--mono);font-size:1.5rem;font-weight:700;letter-spacing:-.03em}
 .group-h{font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:16px 0 4px}
-.nudge{margin:12px 0;padding:12px;border-radius:8px;background:var(--soft);color:var(--tile-S-ink);font-size:.88rem}
-:root[data-theme="dark"] .nudge{color:var(--ink)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .nudge,:root:not([data-theme="light"]) .benefits,:root:not([data-theme="light"]) .combo .tag{color:var(--ink)}}
+.nudge{margin:12px 0;padding:12px;border-radius:10px;background:var(--soft);color:var(--navy);font-size:.88rem}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .nudge{color:var(--ink)}}
 .nudge.warn{background:var(--warn-bg);color:var(--warn)}
 .meter{display:grid;grid-template-columns:3fr 7fr 10fr;gap:3px;margin-top:8px}
 .meter i{display:block;height:8px;border-radius:99px;background:var(--line);position:relative;overflow:hidden}
 .meter i::after{content:"";position:absolute;inset:0;width:var(--w,0%);background:var(--green)}
 .meter-l{display:grid;grid-template-columns:3fr 7fr 10fr;gap:3px;font-family:var(--mono);font-size:.66rem;color:var(--muted);margin-top:3px}
 .acts{display:flex;flex-direction:column;gap:8px;margin-top:14px}
-.acts .row{display:flex;gap:8px;flex-wrap:wrap}
-.acts .row .btn{flex:1;min-width:140px}
+.acts .row{display:flex;gap:8px;flex-wrap:wrap}.acts .row .btn{flex:1;min-width:140px}
 .fine{font-size:.76rem;color:var(--muted);margin-top:12px}
-textarea.msg{width:100%;min-height:150px;margin-top:10px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:10px;font:400 .8rem/1.4 var(--mono)}
+textarea.msg{width:100%;min-height:150px;margin-top:10px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:10px;font:400 .8rem/1.4 var(--mono)}
 .link{background:none;border:0;padding:6px 0;text-decoration:underline;font-size:.8rem;color:var(--muted)}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.bar{transition:none}}
-</style>
 
-<header class="top">
+@media (max-width:640px){
+  .combos{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .combo{padding:12px;gap:8px;border-radius:12px}
+  .combo h3{font-size:1.05rem}.combo .blurb{display:none}.combo li{padding:4px 0;font-size:.7rem}
+  .combo .meta span:nth-child(n+3){display:none}
+  .combo .price{flex-direction:column;align-items:flex-start;gap:2px}.combo .price .big{font-size:1.3rem}.combo .price .small{text-align:left;font-size:.66rem}.combo .price .small br{display:none}
+  .combo .btn{min-height:40px;font-size:.72rem;padding:0 .5rem}
+  .grid{gap:10px}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.steps li{flex-direction:column;gap:6px;padding:12px}
+  .story{min-height:70svh}.story .ph{min-height:210px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}.wall .col,.ticker div,.scrollcue i{animation:none}.rv{opacity:1;transform:none;transition:none}.story .ph img{transform:none!important}
+}
+.catg{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.catg .catt:first-child{grid-column:1/-1;aspect-ratio:16/9}
+@media(min-width:800px){.catg{grid-template-columns:repeat(5,1fr)}.catg .catt:first-child{grid-column:auto;aspect-ratio:3/4}}
+.catt{position:relative;aspect-ratio:3/4;border-radius:18px;overflow:hidden;background:var(--navy);color:#fff;text-decoration:none;display:flex;align-items:flex-end;padding:16px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;font-size:.85rem}
+.catt img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s}.catt:hover img{transform:scale(1.07)}
+.catt::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 45%,rgba(1,40,61,.88))}.catt span{position:relative;z-index:1}
+.benf{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}@media(min-width:800px){.benf{grid-template-columns:repeat(3,1fr)}}
+.benf div{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 18px}.benf b{display:block;font-weight:900;font-size:1.05rem;margin-bottom:6px}.benf span{color:var(--muted);font-size:.9rem}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:8px}.faq summary{font-weight:800;cursor:pointer}.faq details p{margin-top:10px;color:var(--muted)}
+.nlb{background:var(--navy);color:#fff;border-radius:22px;padding:44px 22px;text-align:center}.nlb p{color:var(--navy-muted);margin:8px 0 18px}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Bona Street mayorista"><b>BONA STREET</b><span>MAYORISTA</span></a>
+    <a class="brand" href="#inicio" aria-label="Bona Street"><b>BONA STREET</b></a>
     <nav aria-label="Secciones">
-      <a href="#combos">Combos</a>
-      <a href="#catalogo">Catálogo</a>
-      <a href="#como">Cómo comprar</a>
+      <a href="#categorias">Categorías</a>
+      <a href="#packs">Combos</a>
+      <a href="#catalogo">Productos</a>
+      <a href="#faq">Ayuda</a>
       <button class="cartbtn" id="topCart" type="button" aria-label="Ver mi pedido">Pedido <span class="n" id="topN">0</span></button>
     </nav>
   </div>
 </header>
 
-<main id="top">
-<section class="hero">
+<main>
+<section class="hero" id="inicio">
+  <div class="hero-bg" style="--bgimg:url('img/bg.jpg')"></div>
+  <div class="wall" id="wall" aria-hidden="true"></div>
   <div class="wrap">
-    <p class="eyebrow">Bona Street · San Juan · Argentina</p>
-    <h1>Ventas mayoristas a partir de <em>3 unidades</em></h1>
-    <p class="lead">Streetwear, sportwear, calzado y accesorios en un mismo pedido. Vender mucho y barato: cuantas más prendas llevás, menos pagás por cada una.</p>
-    <div class="cta-row">
-      <a class="btn" href="#catalogo">Armar mi pedido</a>
-      <a class="btn ghost" href="#combos">Ver combos</a>
+    <p class="eyebrow rv">Bona Street · San Juan · Argentina</p>
+    <h1 class="rv" style="--d:.08s">Streetwear para <em>todos los días.</em></h1>
+    <div class="promise rv" style="--d:.16s"><b>3+</b> Comprá + pagá -: desde 3 unidades surtidas</div>
+    <p class="lead rv" style="--d:.24s">Remeras, shorts, bermudas, zapatillas y accesorios en un solo pedido. Mezclá modelos, talles y colores: cuantas más prendas llevás, menos pagás por cada una.</p>
+    <div class="cta-row rv" style="--d:.32s">
+      <a class="btn" href="#catalogo">Ver productos</a>
+      <a class="btn ghost" href="#packs">Ver combos</a>
     </div>
-    <div class="stairs" id="stairs" aria-label="Escala de precios de ejemplo"></div>
-    <p class="stairs-note" id="stairsNote"></p>
+    <div class="scrollcue rv" style="--d:.4s"><i></i> Scrolleá para ver el surtido</div>
   </div>
 </section>
 
-<div class="benefits">
-  <div class="wrap">
-    <ul>
-      <li>Despachamos en 24 h</li>
-      <li>Sin seña y sin monto mínimo</li>
-      <li>Transferencia o efectivo</li>
-      <li>Retiro en San Juan y CABA</li>
-    </ul>
-  </div>
-</div>
+<div class="ticker" aria-hidden="true"><div id="tick"></div></div>
 
-<section class="block" id="combos">
+<section class="block" id="categorias">
   <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow g">Para arrancar a emprender</p>
-      <h2>Combos mayoristas</h2>
-      <p>Surtidos armados por nosotros. El precio sale por el total de prendas de tu pedido: si sumás más, todo baja de escala. Si el combo pasa los $150.000 ya viene con un descuento extra. Talles y colores los elegís con nosotros por WhatsApp.</p>
+    <div class="sec-head rv"><p class="eyebrow g">Categorías</p><h2>Recomendaciones de la casa.</h2></div>
+    <div class="catg" id="catg">
+      <a class="catt rv" href="#catalogo" data-go="Shorts"><img src="img/dia_azul.jpg" alt="" loading="lazy"><span>Short Diamond</span></a>
+      <a class="catt rv" href="#catalogo" data-go="Bermudas" style="--d:.06s"><img src="img/ber_dream.jpg" alt="" loading="lazy"><span>Bermudas, Jogging, Baggy</span></a>
+      <a class="catt rv" href="#catalogo" data-go="Zapatillas" style="--d:.12s"><img src="img/zap_sbroyal.jpg" alt="" loading="lazy"><span>Zapatillas</span></a>
+      <a class="catt rv" href="#catalogo" data-go="Pantalones" style="--d:.18s"><img src="img/jog_premium.jpg" alt="" loading="lazy"><span>Joggings</span></a>
+      <a class="catt rv" href="#catalogo" data-go="Remeras" style="--d:.24s"><img src="img/rem_drake.jpg" alt="" loading="lazy"><span>Remeras</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="como">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow g">Compra surtida</p>
+      <h2>Más prendas, menos por cada una.</h2>
+      <p>El precio por prenda lo define el total de unidades de tu pedido, sin importar el modelo. Mezclá lo que quieras.</p>
+    </div>
+    <div class="stairs" id="stairs" aria-label="Escala de precios de ejemplo"></div>
+    <p class="stairs-note" id="stairsNote"></p>
+    <div class="how3">
+      <div class="rv"><span class="n">01</span><b>Elegí del catálogo</b><span>Talle y color de cada modelo. Stock real, al día.</span></div>
+      <div class="rv" style="--d:.1s"><span class="n">02</span><b>Mínimo 3 unidades</b><span>Surtidas, de cualquier modelo. Desde ahí se activa el precio mayorista.</span></div>
+      <div class="rv" style="--d:.2s"><span class="n">03</span><b>Mandalo por WhatsApp</b><span>El pedido llega armado. Lo confirmamos, lo señás y lo despachamos.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:0" id="surtido">
+  <div class="wrap">
+    <div class="sec-head rv"><p class="eyebrow g">El surtido</p><h2>Lo que se usa en la calle.</h2></div>
+    <div class="stack" id="stack"></div>
+  </div>
+</section>
+
+<section class="block" id="packs" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow g">Combos · Armá tu fit</p>
+      <h2>Combos mayoristas.</h2>
+      <p>Surtidos listos para emprender. Talles y colores los coordinamos por WhatsApp. Si el pack pasa los $150.000, ya viene con descuento extra.</p>
     </div>
     <div class="combos" id="combosGrid"></div>
   </div>
@@ -293,544 +356,417 @@ textarea.msg{width:100%;min-height:150px;margin-top:10px;background:var(--surfac
     </div>
   </div>
   <div class="wrap">
-    <div class="sec-head" style="margin-top:34px">
-      <p class="eyebrow g">Elegís talle y color</p>
-      <h2>Catálogo completo</h2>
-      <p>Mezclá lo que quieras: el precio por prenda lo define el total de unidades de tu pedido. Stock real al <span id="stockDate"></span>.</p>
+    <div class="sec-head rv" style="margin-top:38px">
+      <p class="eyebrow g">Catálogo completo</p>
+      <h2>Elegí talle y color.</h2>
+      <p>Stock disponible al <span id="stockDate"></span>. Lo que está reservado con seña no figura acá.</p>
     </div>
     <div class="grid" id="grid"></div>
   </div>
 </section>
 
-<section class="block" id="como" style="padding-top:0">
+<section class="block" id="beneficios">
   <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow g">Simple y rápido</p>
-      <h2>Cómo comprar</h2>
+    <div class="sec-head rv"><p class="eyebrow g">Beneficios</p><h2>Comprar acá conviene.</h2></div>
+    <div class="benf">
+      <div class="rv"><b>Envío gratis</b><span>En compras desde $125.000</span></div>
+      <div class="rv" style="--d:.06s"><b>Compra + paga -</b><span>Más prendas, menos pagás por cada una</span></div>
+      <div class="rv" style="--d:.12s"><b>12% off</b><span>Pagando con transferencia o efectivo. Ya aplicado en los precios.</span></div>
+      <div class="rv" style="--d:.18s"><b>Despacho en 24 h</b><span>Tu pedido sale dentro de las 24 h de confirmado el pago</span></div>
+      <div class="rv" style="--d:.24s"><b>2 puntos de retiro</b><span>📍 San Juan (Rivadavia) · 📍 CABA</span></div>
+      <div class="rv" style="--d:.30s"><b>Escribinos</b><span>Te asesoramos personalmente por WhatsApp</span></div>
     </div>
+  </div>
+</section>
+
+<section class="block" id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv"><p class="eyebrow g">Ayuda</p><h2>Preguntas frecuentes.</h2></div>
+    <div class="faq rv">
+      <details><summary>¿Qué medios de pago aceptan?</summary><p>Transferencia (12% OFF), efectivo al retirar, y tarjeta de crédito y débito en compras minoristas. En ventas mayoristas se paga por transferencia o efectivo.</p></details>
+      <details><summary>¿Cuánto tarda en llegar mi pedido?</summary><p>En San Juan te lo llevamos en el día por moto mensajería. Al resto del país despachamos dentro de las 48 hs hábiles; el tiempo de entrega depende de la zona.</p></details>
+      <details><summary>¿Aceptan cambios y devoluciones?</summary><p>Sí, dentro de los 7 días hábiles posteriores a la compra.</p></details>
+      <details><summary>¿Hacen envíos a todo el país?</summary><p>Sí. El envío es gratis en compras desde $125.000.</p></details>
+      <details><summary>¿Dónde puedo retirar?</summary><p>Tenemos dos puntos de retiro: San Juan (Rivadavia) y CABA. Coordinamos el horario por WhatsApp.</p></details>
+      <details><summary>¿Cómo sé mi talle?</summary><p>En cada producto vas a encontrar los talles disponibles. Si tenés dudas, escribinos por WhatsApp.</p></details>
+      <details><summary>¿Cómo funciona la seña?</summary><p>Con la seña la mercadería queda reservada para vos y no se ofrece a nadie más. En San Juan tenés 7 días hábiles para retirar; si no, se pierde la seña.</p></details>
+      <details><summary>¿Venden mayorista?</summary><p>Sí, somos mayoristas desde 3 unidades surtidas. Sumate al grupo de WhatsApp mayorista para novedades y stock.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:0">
+  <div class="wrap"><div class="nlb rv"><h2>Suscribite al newsletter</h2><p>Recibí ofertas exclusivas y novedades.</p><a class="btn" id="nlWa" href="#">Unirme por WhatsApp</a></div></div>
+</section>
+
+<section class="manifesto" aria-label="Bona Street">
+  <div class="wrap rv">
+    <p class="eyebrow">Bona Street</p>
+    <p class="mf">Nacimos en San Juan. Vendemos <em>a todo el país.</em></p>
+    <p class="mf-sub">Vestite bien. Pagá lo justo.</p>
+  </div>
+</section>
+
+<section class="block" id="comprar">
+  <div class="wrap">
+    <div class="sec-head rv"><p class="eyebrow g">Simple y rápido</p><h2>Cómo comprar</h2></div>
     <ol class="steps">
-      <li><span class="n">1</span><div><b>Armás tu pedido</b><span>Elegí combos o prendas sueltas, con talle y color.</span></div></li>
-      <li><span class="n">2</span><div><b>Lo mandás por WhatsApp</b><span>Se arma solo el mensaje con todo el detalle.</span></div></li>
-      <li><span class="n">3</span><div><b>Pagás</b><span>Transferencia o efectivo. Sin seña y sin monto mínimo.</span></div></li>
-      <li><span class="n">4</span><div><b>Despachamos en 24 h</b><span>Envío a cargo del cliente, o retiro en San Juan o CABA.</span></div></li>
+      <li class="rv"><span class="n">1</span><div><b>Armá tu pedido</b><span>Packs o prendas sueltas, con talle y color. Mínimo 3 unidades surtidas.</span></div></li>
+      <li class="rv" style="--d:.08s"><span class="n">2</span><div><b>Mandalo por WhatsApp</b><span>El mensaje se arma solo, con todo el detalle.</span></div></li>
+      <li class="rv" style="--d:.16s"><span class="n">3</span><div><b>Señá y reservamos</b><span>Con la seña la mercadería queda reservada para vos. En San Juan, 7 días hábiles para retirar.</span></div></li>
+      <li class="rv" style="--d:.24s"><span class="n">4</span><div><b>Despachamos en 24 h</b><span>Envío a cargo del cliente, o retirás en Rivadavia (San Juan) o en CABA.</span></div></li>
     </ol>
-    <p class="curva"><b>¿Querés llevar por curva de talles?</b> Escribinos por privado: la curva completa tiene un precio especial, más bajo que el de esta lista.</p>
+    <p class="curva rv"><b>¿Querés llevar por curva de talles?</b> Escribinos por privado: la curva completa tiene un precio especial, más bajo que el de esta lista.</p>
   </div>
 </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <h2>Nacimos en San Juan. Vendemos a todo el país.</h2>
-    <p>Showroom Bona Street: Suipacha 4027 (oeste), Los Mirasoles, Rivadavia, San Juan. Retiros de lunes a viernes de 9 a 18. Visitas a coordinar por WhatsApp. Retiro también en CABA.</p>
+    <h2>Todo en un solo lugar. Desde 3 unidades.</h2>
+    <p>Showroom Bona Street: Suipacha 4027 (oeste), Los Mirasoles, Rivadavia, San Juan. Retiros de lunes a viernes de 9 a 18. Visitas a coordinar por WhatsApp. Retiro también en CABA, Buenos Aires. Si preferís envío, llegamos a todo el país (a cargo del cliente).</p>
     <div class="cta-row"><a class="btn" href="#catalogo">Armar mi pedido</a></div>
-    <small>Precios en pesos argentinos para pago por transferencia o efectivo (el 12% de descuento ya está aplicado). No aceptamos tarjeta en ventas mayoristas. Stock sujeto a disponibilidad al momento de confirmar.</small>
+    <small>Precios en pesos argentinos para pago por transferencia o efectivo (el 12% de descuento ya está aplicado). No aceptamos tarjeta en ventas mayoristas. Stock sujeto a disponibilidad al momento de confirmar. Si la seña no se retira en el plazo acordado, se pierde.</small>
   </div>
 </footer>
 
 <div class="bar" id="bar">
-  <div class="in">
-    <div class="t"><small id="barS">0 prendas</small><b id="barT">$0</b></div>
-    <button class="btn" id="barBtn" type="button">Ver pedido</button>
-  </div>
+  <div class="in"><div class="t"><small id="barS">0 prendas</small><b id="barT">$0</b></div><button class="btn" id="barBtn" type="button">Ver pedido</button></div>
 </div>
-
-<div class="ov" id="ov" aria-hidden="true">
-  <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle"></div>
-</div>
+<div class="ov" id="ov" aria-hidden="true"><div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle"></div></div>
 
 <script>
 /* ====== CONFIGURACIÓN ====== */
-const WA_NUMBER = "5492644113870"; // WhatsApp de Bona Street (código de país + 9 + área + número)
-const STOCK_DATE = "15/10/2026";
-const COMBO_DISCOUNT = 0.06;     // descuento extra en combos que superan el umbral
-const COMBO_THRESHOLD = 150000;
-const IMAGES = {};
-const DRIVE = id => "https://drive.google.com/drive/folders/" + id;
-const PHOTO_ROOT = "191TPWGJas960mMiq9qMGda1fS1Yhso9D";
-const PHOTO_MAP = [
- [/^Stilness/i,"1cUdcy8c8lqcWekM36BfHdI4pE7B0uiSD"],[/^Street Blanca/i,"1mAXbib43mlbfvezapI8aVbvkKZ9C4Kqq"],[/^Hawk Tour White/i,"1phdbgkH7xrvErxf6MOXAYmrdYgNEVWgd"],[/^Hawk Tour Black/i,"1UlFbIDxtLbJ9_j2hzXirAGQ91AMX5wq6"],
- [/^SDA/i,"1lMty4hs2JyCUllBHoi95fUkXsWTW838j"],[/^Benito/i,"1ELAq8kejFvTt2EraAuETrZxPNKQA76oq"],[/^Alemania/i,"1WLZC14HovNv5eP5pAU-WZE7vj4Wb7t2_"],[/^Seven/i,"1h_a0mUbqCCGpqfwJRPs1p0SmCLtxoINp"],
- [/^Grey 34/i,"1hg6iZdWLxlUUcKuUTKm8RveWjUbIlMcI"],[/^All Star/i,"1kyfdrViJczaEMJdRz2mN-MFsxqvPUwN8"],[/^Boxys Streetwise/i,"1G3JrSVOslkHyKB3tGWnbjq7ff6jgH16x"],[/^Champagne/i,"1z7KyAe2qRwDqI9D_9GDtbNvy6f0eB-JR"],
- [/^DVS/i,"1sGeQCDDFMUP6qMmVCytnB_wAspgHKwG9"],[/^Coachela/i,"1FpM1as4SW7BzQYVGSi0_m1iMXK8CTptb"],[/^Polo Confidence/i,"113lF6iJUKKBBKlVms6uARKK7XaRaxdJJ"],[/^Sparky/i,"1OhlJpYR8yPQMWCjcD4UJ3eIFqcO3XWTl"],
- [/^Cuello V/i,"1Ni12h8VLtbJQUwPQQWLZDklM3JDb17P3"],[/^Mac Miller/i,"1ApQ06lRYb1eX6rUnkVXA6ozXTwBNQjmc"],[/^Tyler/i,"1qWqG4ZjyGM-yPSOtwthyWtA4rjBed1sx"],[/^Drake/i,"1v-4agQ0CxtpUtoghg4AqICqObqwMNltj"],
- [/^Blessed Boxy/i,"1hO27ModMOJnvKoGt6pI5FU_zX0y_7U-d"],[/Currently/i,"1-WU6ETDo2v73xXSe0S_4cfhYryWqdwE8"],[/Saintless/i,"1U-IENCMsft3OdXYRY-J2tNCZGLWIS2lI"],
- [/^NBA Basic Flight/i,"1BYDirU_7n1_-iHzmwDZbsb02OjORqmXe"],[/^NBA Basic Jordan Diagonal/i,"1N-mjOV8x5LSiummNswq1eAGRp8sM8hpm"],[/^NBA Basic Jordan Air/i,"1Wk2pfb0XkzcuR7TDmzIEtsCkhk1-L4-i"],
- [/^NBA Full Estampa Champion/i,"1XukqqAUYk6C7ZomDvCUwy6IzenBlqW0Q"],[/^NBA Full Estampa Jordan/i,"1fM1eKlNFM0cGG6Co2a-DTzjYIdtRzmiH"],
- [/^Chomba Fardo Nike/i,"1-7_dDf45NssmdXuA0UyWtuMv-frJBLCG"],[/^Chomba Fardo Jordan/i,"1xG43KddK69mMQpDTUBsKhwJv4FZJNx47"],[/^Chomba Fardo Puma/i,"1Dv9mkJ7gDHINWH7oIURh6-QEDrIZ-rio"],[/^Chomba Fardo Adidas/i,"1xSVWkL4rgJwOtbQrdqjEy2kGE7MxaV4Z"],
- [/Baggy Camo Project/i,"1Ay5SOTyl06G2Ksk5ywxEDf0ocFTIEEF5"],[/Baggy Camo Dark/i,"1P9fFqsidu-dxkfXRR3IewqEOasPdL92a"],[/Baggy Camo/i,"1vTAA6qv_kV1KbSNON0YwDOzZkoBd2Nuf"],[/Mónaco/i,"1EIEP2esw7O9jmCmn4-AU8-pfeKGZeMOZ"],
- [/Rebelión/i,"1uyq2v_fVEJAkGNu6pv2CGibohkoQUTAD"],[/BAPE/i,"1Ecvlduncs0QcXtpDlPUIhJm3Xp1AZFMe"],[/Dark Side/i,"1Xk0_wdCl35xj4axGClii3tSGLcOqECI0"],[/Baggy Retro/i,"1AmDcqAqxS9NcySZ1K8xHK7u8c293usFf"],
- [/Arc Azul/i,"17EQNIt35dudp5GSgMykvGCZaT8wstSgM"],[/Grey Oscuro/i,"1SvrKNt28Z680Vi5Un7mQsbXPLdfYcdHW"],[/Duki/i,"1tzh3woxzmG4ruSPMpwHJ1oGm90rWsHzA"],[/Classic Light/i,"16vf-2DMguNtSmg2nBsg8wPR5eYbbdFB7"],
- [/Baggy Classic Blue/i,"1jxyS7YkNok49mQcObCpkla1fPzVjdicI"],[/Jogging Blessed/i,"1kb-kjrRgs0NnjD0KXw1XftlW2OA4Mpe1"],[/Jogging Classic/i,"1jFjZPAYsh-z18xjqWg0dWxu1j-iC--Se"],[/Jogging Japón/i,"1hBFypA9Zlq1a7LI5XUJ7Qm3NmnaNzd72"],[/Jogging con falla/i,"11CJr3lafS8-zBvcV_Z95b43OvoMc4mEQ"],
- [/^Diamond Importado/i,"1jQg9Oj1wXL9f_4ldcIi2oEVN1MSA-WF2"],[/^Diamond/i,"1rOSjDZr3TJKnvqxiQMTjdzi6lA_ORTOm"],[/Jordan Negro Relámpago/i,"15230aKDCuHqN0wBv6nORDHp91jiEYWRm"],[/Jordan Celeste/i,"1fnAgh37R5cQcuXBAsr38Jw69GqhHmQTC"],
- [/Raiders/i,"19aoY04s2yRMPyXQPBNnNFxANECMWbeNk"],[/Lakers Blanco/i,"1jO4bX8EKvltXHufQ9nQJzi_6WftCAR94"],[/Lakers Negro/i,"14jryGV9HdOuFhvc6mU_vUoZi4M1lqeJt"],[/Raptors/i,"1ngtRlfa3h3w-sXcN3U7q3qL1eZD3S9RQ"],
- [/Short Fardo Nike Big Pipa/i,"1n3hhdT51b_-VXIBA10XLOCKoiP0d46mx"],[/Short Fardo Adidas/i,"1AJHSaxeESVkHdYLkbLYgu2QrpIWoLZGg"],[/Short Fardo Nike Negro/i,"1-GK2mU146YRjO11O52AG8tFn2KAy5QP3"],
- [/KNU Caramel/i,"1VLD6tZF8uYyAOlJRu8kiPrUzIkxSCh5X"],[/SB Jordan Royal/i,"1INEZ8beAi72_4YfZRF0Oda19VrmlGmH0"],[/SB Jordan Grey/i,"12-tei5REdtz97p5c_C682BPxYrqvyexn"],[/SB Varsity/i,"1HNyyoQTqD_ptnyn1kAwoh99EWHrN1BnM"],
- [/KNU Total White/i,"19C6RI2R-pMwHKi76DwGLFq_zHDnLZcLA"],[/Samba Pink/i,"1W4FQSv_X30n7rSoXmAK_oFAKLf2qBoOw"],[/Retro Running/i,"1yk1sl-WW3o6FYOV25HDRwcvmnkfcXNyk"],[/SB Gris/i,"1P8aPZhcx1VCLQ8NyA6mYVs6Ji257ybGB"],
- [/Samba Classic/i,"1Hv4KwMEsCSH2MIo2_CYz1rjt005_PyPM"],[/KNU Total Black/i,"1fGGO93OfDtQbajX-5llQJEwwv97K6Ixv"],[/NB 1000/i,"1hGlxF4XTRo3SLkfe3fJqeBHWhtiDn5Ii"],[/Nocta/i,"1rnmdmh8iBtBmIk0AAQLcWzU_ngl__Wbq"],
- [/Real Tree/i,"1hz1PgJzqkmUG3OQ5SGxRZqwP6mbgc7_S"],[/Lyon/i,"14uLQRqrqtIs6s4zTToLxMqCnNTGFNqLY"],[/Travis/i,"1fXp0PAmBlbhkFFfuuNvDCG-BWViDR08v"],[/Óxido/i,"17gfx2dwa639NNooAG0HIH-SOAxUeVYXM"],[/^Track Pants/i,"1nVU3wkMntBIjsTp0tbrVuA4lgbxZ_6oC"],
- [/^Buzo Basic/i,"11yw70MATlHz2Py0gcuUlK88Oc5wuFJph"],[/^Buzo Polo Win/i,"1JuXoUemWWDNThL8qLHQbu_Cm9T8CVf8M"],[/Zip Hoodie/i,"1Z5TndyFkL6X8WqwQ_1XnLZ9iI6s3h-fV"],[/^Medias/i,"1d4T6F2y2id3PwMD0RBIBAgeDkvLw5N0H"]
-];
-function photoLink(l) {
-  const n = l.name, t = l.type, hit = PHOTO_MAP.find(([re]) => re.test(n));
-  if (hit) return DRIVE(hit[1]);
-  if (t === "Bermudas") return DRIVE("1usCpxL3-W9h_9-yff-ofoibhW8aZiUwE");
-  if (t === "Remeras") return DRIVE("1SqmaIxxofV5ytyhqdPJSYFeRJpGbrIgm");
-  if (t === "Shorts") return DRIVE("1vf1Ipavh6Bh3Yl1srJ8MbXzHtw4rPpod");
-  if (t === "Zapatillas") return DRIVE("1oLH55SK8bcjrEoXoFrcan23KBcRRTW91");
-  if (t === "Ojotas") return DRIVE("1WYniD4JWIumCbEddulQoRCN5r_4UrpC7");
-  if (t === "Buzos y camperas") return DRIVE(/^Buzo/.test(n) ? "1NhiDiNT-GnYhWfoHJSfNm351XfPIE7-0" : "1UYp72qGrNu7mgSuAxWzFdujInkQzIqoD");
-  if (t === "Pantalones") return DRIVE("1dp8cfORs6tWrgEtLz69d6sAC4gljt558");
-  if (t === "Medias" || t === "Relojes") return DRIVE("1GjdSJa6xmIOXCxuTc6LkRJv0L0XUTngP");
-  return DRIVE(PHOTO_ROOT);
-}
-               // nombre del modelo -> URL de foto (se completa cuando las fotos estén publicadas)
+const WA_NUMBER = "5492644113870";
+const SRC = (() => { try { const q = new URLSearchParams(location.search), s = q.get("utm_source") || q.get("s"); if (s) sessionStorage.setItem("src", s); return sessionStorage.getItem("src") || ""; } catch (e) { return ""; } })();
+function pxTrack(e, p) { try { window.fbq && fbq('track', e, p || {}); } catch (x) {} }
+let _pxU = 0;
+const STOCK_DATE = "06/11/2026";
+const COMBO_DISCOUNT = 0.06, COMBO_THRESHOLD = 150000;
+const IMG = f => "img/" + f + ".jpg", HIMG = f => "img/h_" + f + ".jpg";
+const HERO = ["rem_nbaflight","dia_azul","zap_sbroyal","rem_drake","ber_dream","sho_relamp","rem_boxys","zap_retro","dia_morado","rem_nbafull","jog_premium","ber_blessed","rem_stilness","sho_celeste","zap_samba","dia_bicolor","col_big","jog_tres","ber_jogclassic","rem_tyler"];
+const PHOTOS = [[/^Stilness/i,"rem_stilness"],[/^Boxys/i,"rem_boxys"],[/^Tyler/i,"rem_tyler"],[/^Drake/i,"rem_drake"],[/^Jogging Blessed/i,"ber_blessed"],[/^NBA Bassic Flight/i,"rem_nbaflight"],[/Champion/i,"rem_nbafull"],[/^Negro Relamp/i,"sho_relamp"],[/^Celeste Relamp/i,"sho_celeste"],[/^Retro Running/i,"zap_retro"],[/^SB Royal/i,"zap_sbroyal"],[/^Samba Classic/i,"zap_samba"],[/^Jogging Premium/i,"jog_premium"],[/^Short Importado$/i,"dia_azul"],[/^Bermuda Dream/i,"ber_dream"],[/^Jogging Classic/i,"ber_jogclassic"],[/^Collar Big/i,"col_big"],[/^Pulsera$/i,"pul_001"],[/^Fardo 3 Lineas/i,"jog_tres"]];
+const photoOf = n => { const h = PHOTOS.find(([re]) => re.test(n)); return h ? h[1] : null; };
 
-/* ====== DATOS (Google Sheets "BonaStreet_Admin_v3_formulas", hoja Stock, al 15/10/2026) ======
-   nicho|tipo|modelo|precio lista (transferencia)|x3|x10|x20|talle:color:stock;...   (U = talle único) */
+/* ====== DATOS (app Bona Gestión, stock disponible = stock físico − reservas) ======
+   nicho|tipo|modelo|precio lista|x3|x10|x20|talle:color:stock;...   (U = talle único) */
 const DATA = `
-C|Zapatillas|KNU Caramel|48900|42930|39149|35965|39::1
-C|Zapatillas|Nike SB Jordan Royal|48900|42780|38904|35640|38::1;39::1;41::1
-C|Zapatillas|Nike SB Jordan Grey|55000|47050|42015|37775|39::1
-C|Zapatillas|Nike SB Varsity|48900|42930|39149|35965|41::2
-C|Zapatillas|KNU Total White|48900|42930|39149|35965|34::1
-C|Zapatillas|Samba Pink|48900|42180|37924|34340|34::1
-C|Zapatillas|Nike Retro Running|55000|48700|44710|41350|38::1;39::2;40::1;41::2;43::1
-C|Zapatillas|Nike SB Gris|55000|48700|44710|41350|43::1
-C|Zapatillas|Samba Classic|55000|48700|44710|41350|43::1
-C|Zapatillas|KNU Total Black|55000|48700|44710|41350|39::1;40::2
-C|Zapatillas|NB 1000|55000|48700|44710|41350|40::1
-C|Zapatillas|Nike AF1 x Nocta|55000|48700|44710|41350|40::1;41::1;42::1
-C|Ojotas|Adilette|22500|18000|15150|12750|38:Negro:2;40:Negro:3;42:Negro:3;44:Negro:1;36:Beige:1;38:Beige:2;40:Beige:2;42:Beige:2;44:Beige:3;38:Gris:1;40:Gris:2;42:Gris:4;44:Gris:2;38:Verde:1;40:Verde:5;42:Verde:4;44:Verde:3
-S|Remeras|Stilness Boxy Fit|24640|19648|16486|13824|L:Blanca:1
-S|Remeras|Limit Cemento Boxy Fit|24640|19648|16486|13824|M::1
-S|Remeras|Azul Lisa Boxy Fit|24640|18748|15016|11874|L::1
-S|Remeras|Street Blanca Boxy Fit|24640|20848|18446|16424|M::1
-S|Remeras|Hawk Tour White Boxy Fit|24640|19948|16976|14474|S::1;L::1
-S|Remeras|Hawk Tour Black|24640|19948|16976|14474|XL::1
-S|Remeras|Barca|24640|20398|17711|15449|S::1
-S|Remeras|SDA Araña|24640|20398|17711|15449|XL::1;M::1
-S|Remeras|Benito 10|24640|20398|17711|15449|M::1;L::1;XL::1
-S|Remeras|Alemania|24640|20398|17711|15449|M::1
-S|Remeras|Seven|24640|21448|19426|17724|XL::1
-S|Remeras|Grey 34|24640|21448|19426|17724|XL::1
-S|Remeras|All Starr|24640|21148|18936|17074|U:Gris:2;U:Rosa:1;U:Azul:1
-S|Remeras|Boxys Streetwise|24640|20848|18446|16424|M:Gris oscuro:1;L:Gris oscuro:1;L:Mármol:1
-S|Remeras|Champagne|24640|20848|18446|16424|S:Choco:1;L:Natural:2
-S|Remeras|DVS Studio|24640|20848|18446|16424|M:Mármol:1;L:Mármol:1;S:Negra:1
-S|Remeras|Coachela|24640|20848|18446|16424|L:Gris oscuro:1;L:Choco:1;S:Natural:1
-S|Remeras|Over Basic|24640|20848|18446|16424|S:Gris oscuro:2;M:Gris oscuro:1;M:Negro:1
-S|Remeras|Polo Confidence|24640|20848|18446|16424|M:Azul:1
-S|Remeras|Sparky|24640|20848|18446|16424|M:Pecan:1
-S|Remeras|Cuello V|24640|20848|18446|16424|S:Azul:1;M:Azul:1;M:Blanco:1
-S|Remeras|Mac Miller Boxy Fit|24640|20548|17956|15774|XL:Crema con rojo:1;L:Negra:1;L:Blanca:1
-S|Remeras|Tyler Boxy Fit|24640|20548|17956|15774|L:Crema:1;XL:Crema:2
-S|Remeras|Drake Boxy Fit|24640|20548|17956|15774|L:Roja:1;XL:Negra:1;XL:Roja:1
-S|Remeras|Blessed Boxy Fit|24640|20548|17956|15774|M:Negra:1
-S|Remeras|Doble Manga Currently|23900|19880|17334|15190|S:Gris topo:1;M:Gris:1
-S|Remeras|Doble Manga Saintless|23900|19880|17334|15190|L:Verde:1
-P|Remeras|NBA Basic Flight|24640|20218|17417|15059|XL:Rojo:2;XXL:Negro:1;XL:Negro:1
-P|Remeras|NBA Basic Jordan Diagonal|24640|20218|17417|15059|XL:Blanco:1;XL:Negro:1;XXL:Negro:1
-P|Remeras|NBA Basic Jordan Air|24640|20218|17417|15059|M:Negro:1;XL:Negro:2;XXL:Negro:1
-P|Remeras|NBA Full Estampa Champion|24640|21148|18936|17074|XXL:Negro:1
-P|Remeras|NBA Full Estampa Jordan Bulls|24640|21148|18936|17074|XL:Negro:1;XXL:Negro:1
-P|Remeras|Chomba Fardo Nike|23000|19400|17120|15200|L::1
-P|Remeras|Chomba Fardo Jordan|23000|19400|17120|15200|L::1
-P|Remeras|Chomba Fardo Puma|23000|19400|17120|15200|L::1
-P|Remeras|Musculosa Morley|17900|14930|13049|11465|S:Negra:1;M:Negra:1;L:Negra:1;XL:Blanca:1
-S|Buzos y camperas|Buzo Basic|24900|20430|17599|15215|XL:Negro:1;2XL:Negro:1;L:Gris:1
-S|Buzos y camperas|Buzo Polo Win|28000|23200|20160|17600|M:Negro:1;L:Negro:1;XL:Negro:1;XXL:Negro:1
-S|Buzos y camperas|Campera Zip Hoodie|35000|29450|25935|22975|L:Beige:1
-S|Buzos y camperas|Campera TNF Nevada|68500|60850|56005|51925|XXXL:Gris:1
-P|Buzos y camperas|Campera Tracksuit Nike|61500|53700|48760|44600|XXL:Negro:1
-P|Shorts|Short Fardo Nike Negro Detalle|20000|17600|16080|14800|XL:Negro:1
-P|Shorts|Short Fardo Adidas 3 Líneas|20000|17600|16080|14800|S:Blanco:1
-P|Shorts|Short Fardo Nike Big Pipa|24000|20400|18120|16200|L:Gris:1
-P|Shorts|NBA Celtics Beige|15400|12130|10059|8315|S:Beige:1
-P|Shorts|NBA River Potrero|15400|12130|10059|8315|S:Negro:1
-P|Shorts|NBA Pistons|15400|12130|10059|8315|S:Celeste:1
-P|Shorts|NBA Lakers Negro|15400|12130|10059|8315|S:Negro:2
-P|Shorts|NBA Lakers Blanco|15400|12130|10059|8315|S:Blanco:1;XXL:Blanco:1
-P|Shorts|NBA Jordan Negro Relámpago|15400|12130|10059|8315|S:Blanco y negro:3
-P|Shorts|NBA Jordan Celeste Relámpago|15400|12130|10059|8315|S:Celeste:2;M:Celeste:1;L:Celeste:3;XL:Celeste:2
-P|Shorts|NBA Raiders NFL|15400|12130|10059|8315|S:Gris:6
-P|Shorts|NBA Raptors|15400|12130|10059|8315|S:Blanco:3;M:Blanco:1;L:Blanco:2;XXL:Blanco:2
-P|Shorts|Diamond Rojo|13900|11380|9784|8440|XL:Rojo:2;XXL:Rojo:2
-P|Shorts|Diamond Blanco|13900|11380|9784|8440|XL:Blanco:2;XXL:Blanco:2
-P|Shorts|Diamond Negro|13900|11380|9784|8440|XL:Negro:1;XXL:Negro:1
-P|Shorts|Diamond Importado|29568|24650|19300|18750|S:Rosa nude:1;XL:Rosa nude:1;XXXL:Rosa nude:1;S:Negro:1;XXL:Negro cw:1;XXXL:Celeste:1;XL:Azul:1;L:Negro con morado:1;M:Turquesa:1;XXXL:Turquesa:1;M:Azul y verde:1;M:Bicolor pastel:1;L:Blanco y rojo:1;L:Morado:1;XL:Blanco y verde:1;XXL:Verde militar:1;XXL:Negro con rosa:1
-S|Bermudas|Bermuda Baggy Camo Project|30800|26960|24528|22480|42:Camo:1;44:Camo:1
-S|Bermudas|Bermuda Baggy Camo|30800|26960|24528|22480|44:Camo:1
-S|Bermudas|Bermuda Baggy Mónaco|30800|26960|24528|22480|46::1;44::1
-S|Bermudas|Bermuda Baggy Rebelión|30800|26960|24528|22480|38::1
-S|Bermudas|Bermuda Baggy BAPE|30800|26960|24528|22480|44::1;46::1;38::1
-S|Bermudas|Bermuda Baggy Camo Dark|30800|26960|24528|22480|44::1
-S|Bermudas|Bermuda Baggy Dark Side|30800|26960|24528|22480|46::1
-S|Bermudas|Bermuda Baggy Retro|30800|26960|24528|22480|38::1;46::1
-S|Bermudas|Bermuda Baggy Arc Azul|30800|26960|24528|22480|48::1
-S|Bermudas|Bermuda Baggy Grey Oscuro|30800|26960|24528|22480|44::1
-S|Bermudas|Bermuda Baggy Duki|30800|24260|20118|16630|40::1;42::1;44::2;46::2
-S|Bermudas|Bermuda Baggy Classic Light|30800|24260|20118|16630|38::1;40::1;42::1;44::1;46::1
-S|Bermudas|Bermuda Baggy Classic Blue|30800|24260|20118|16630|44::2;46::1
-S|Bermudas|Bermuda Jogging Blessed|25256|22500|19900|18750|S:Gris:1;L:Gris:1;S:Azul:1;M:Azul:1;L:Azul:1
-S|Bermudas|Bermuda Jogging Classic|25256|22500|19900|18750|S:Gris:1;M:Gris:1;L:Gris:1;M:Negro:1;L:Negro:1;S:Azul:1;M:Azul:1
-S|Bermudas|Bermuda Jogging Japón|25256|22500|19900|18750|M:Gris:1;L:Gris:1;L:Negro:1;M:Azul:1;L:Azul:1
-S|Bermudas|Bermuda Jogging con falla|21900|19080|17294|15790|M:Negro:1;M:Azul:1
-S|Bermudas|Jort Rústico Pecan|31800|26760|23568|20880|L:Pecan:1
-S|Pantalones|Pantalón Baggy Real Tree Black|45000|37800|33240|29400|42:Negro:1
-S|Pantalones|Pantalón Baggy Lyon|45000|39000|35200|32000|44:Azul:1
-S|Pantalones|Pantalón Baggy Travis|45000|39000|35200|32000|44:Gris:1
-S|Pantalones|Pantalón Baggy Óxido|45000|38400|34220|30700|46:Azul óxido:1
-S|Pantalones|Track Pants|34900|29680|26374|23590|M:Gris:1
-S|Pantalones|Jogging Boss|42000|36750|33425|30625|L:Choco:1
-S|Pantalones|Jogging Basic|26900|22430|19599|17215|S:Gris melange:4;S:Choco:2;L:Gris melange:1;XL:Negro:1;XL:Gris melange:3
-P|Pantalones|Jogging Nike|37800|31710|27853|24605|M:Gris melange:1
-P|Pantalones|Jogging Adidas|37800|31710|27853|24605|M:Negro:1;M:Gris melange:1;L:Gris melange:1
-P|Pantalones|Pantalón Tracksuit Nike|59900|52580|47944|44040|XL:Negro:1;XXL:Negro:1
-A|Medias|Medias Nike|4200|3330|2779|2315|U:Gris:2;U:Gris claro:2;U:Blanco:7;U:Verde:2;U:Azul:3;U:Rojo:1;U:Rosado:1;U:Celeste pipa negra:1;U:Marrón pipa negra:1;U:Naranja:1;U:Celeste pipa blanca:2;U:Beige pipa rosa:1;U:Beige pipa marrón:1
-A|Medias|Medias Adidas 3 Líneas|4200|3330|2779|2315|U:Azul:2;U:Marrón:1;U:Verde:2;U:Celeste:2;U:Blanco y rojo:2;U:Lavanda:3
-A|Medias|Medias Adidas Retro|4200|3330|2779|2315|U:Blanco:2;U:Crema:1;U:Celeste:1
-A|Medias|Medias Jordan|4200|3330|2779|2315|U:Blanco:3
-A|Medias|Medias Vans|4200|3330|2779|2315|U:Blanco:3;U:Negro:6;U:Blanco y negro:2;U:Celeste:3
-A|Medias|Medias Vans Línea|4200|3330|2779|2315|U:Verde:2;U:Celeste:1;U:Lila:3
-A|Medias|Medias Puma|4200|3330|2779|2315|U:Classic blanco:3;U:Línea roja blanco:1
-A|Medias|Medias Cavs|4200|3330|2779|2315|U:Blanco:2;U:Negro:3
-A|Medias|Medias Sol|4200|3330|2779|2315|U:Azul:2
-A|Medias|Medias Escolares|4200|3330|2779|2315|U:Azul:3
-A|Medias|Medias Fila|4200|3330|2779|2315|U:Azul:1
-A|Medias|Medias Lucky|4200|3330|2779|2315|U:Negro:1
-A|Relojes|Reloj WR Vintage Redondo|18500|16250|14825|13625|U:Gris:6;U:Negro:1
+S|Pantalones|Real Tree Black|45000|37800|33300|29400|42:Negro:1
+S|Pantalones|Lyon|45000|39000|35200|32000|44:Azul:1
+S|Pantalones|Travis|45000|39000|35200|32000|44:Gris:1
+S|Pantalones|Óxido|45000|38400|34300|30700|46:Azul Oxido:1
+S|Pantalones|Track Pants|34900|29700|26400|23600|M:Gris:1
+S|Bermudas|Bermuda Proyect Camo|44900|36900|31800|27500|42:Camo:1;44:Camo:1
+S|Bermudas|Bermuda Camo|44900|36900|31800|27500|44:Camo:1
+S|Bermudas|Bermuda Monaco|44900|36900|31800|27500|44::1;46::1
+S|Bermudas|Bermuda Rebelion|44900|36900|31800|27500|38::1
+S|Bermudas|Bermuda Camuflado|44900|36900|31800|27500|38::1;44::1;46::1
+S|Bermudas|Bermuda Camo Dark|44900|36900|31800|27500|44::1
+S|Bermudas|Bermuda Dark Side|44900|36900|31800|27500|46::1
+S|Bermudas|Bermuda Retro|44900|36900|31800|27500|38::1;46::1
+S|Bermudas|Bermuda Arc Azul|44900|36900|31800|27500|48::1
+S|Bermudas|Bermuda Grey Oscuro|44900|36900|31800|27500|44::1
+S|Bermudas|Bermuda Dream|44900|34200|27400|21600|40::1;42::1;44::2;46::2
+S|Bermudas|Bermuda Classic Light|44900|34200|27400|21600|38::1;40::1;42::1;44::1;46::1
+S|Bermudas|Bermuda Classic Blue|44900|34200|27400|21600|44::2;46::1
+S|Bermudas|Jogging Blessed|25256|21500|19100|17000|L:Gris:1;S:Gris:1;L:Azul M:1;M:Azul M:1;S:Azul M:1
+S|Bermudas|Jogging Classic|25256|21500|19100|17000|S:Gris:1;L:Negro:1;M:Negro:1;M:Azul M:1;S:Azul M:1
+S|Bermudas|Jogging Japon|25256|21500|19100|17000|L:Gris:1;M:Gris:1;L:Negro:1;L:Azul M:1;M:Azul M:1
+S|Bermudas|Jogging Grit|21900|19100|17300|15800|M:Negro:1;M:Azul M:1
+S|Bermudas|Jogging Bassic|17300|14100|12100|10300|M:Negro:1;S:Negro:1;XXL:Negro:1;XXXL:Negro:1;M:Gris Melange:1;S:Gris Melange:1;XXL:Gris Melange:1;L:Chocolate:2;M:Chocolate:2;S:Chocolate:2;XL:Chocolate:2;XXL:Chocolate:2
+S|Bermudas|Bermuda Jogging Baggy Pocket|32500|27600|24500|21800|S:Gris Melange:1;XXL:Gris Melange:1
+S|Buzos y camperas|Basic|24900|20500|17600|15300|XL:Negro:1;XXL:Negro:1;L:Gris M:1
+S|Buzos y camperas|Polo Win|28000|23200|20200|17600|L:Negro:1;M:Negro:1;XL:Negro:1;XXL:Negro:1
+S|Buzos y camperas|Zip Hoodie|35000|29500|26000|23000|L:Beige:1
+S|Buzos y camperas|Nevada|68500|60900|56100|52000|XXXL:Gris:1
+P|Buzos y camperas|Tracksuite|61500|53700|48800|44600|XXL:Negro:1
+A|Collares|Collar Big|15000|15000|15000|15000|U:001:1;U:002:1;U:003:1;U:004:1;U:005:1;U:006:1;U:007:1;U:008:1;U:009:1
+A|Collares|Collar Medium|8000|8000|8000|8000|U:001:1;U:002:1;U:003:1;U:004:1;U:005:1;U:006:1;U:007:1;U:008:1;U:009:1;U:010:1;U:011:1;U:012:1;U:013:1;U:014:1;U:015:1;U:016:1;U:017:1;U:018:1;U:019:1;U:020:1;U:021:1;U:022:1;U:023:1
+A|Collares|Collar Skinny|4000|4000|4000|4000|U:001:1;U:002:1;U:003:1;U:004:1;U:005:1;U:006:1;U:007:1;U:008:1;U:009:1;U:010:1;U:011:1
+P|Shorts|Short Importado|29568|25700|23200|21100|S:Rosa Nude:1;M:Rosa Nude:1;XXXL:Rosa Nude:1;XXXL:Celeste:1;XXXL:Turquesa:1;M:Azul Y Verde:1;M:Bicolor Pastel:1
+S|Pantalones|Jogging Premium|42000|36800|33500|30700|L:Chocolate:1
+S|Pantalones|Jogging Bassic Gris M|26900|22500|19600|17300|S:Girs M:4;L:Gris Melange:1
+S|Pantalones|Jogging Bassic Choco|26900|22500|19600|17300|S:Chocolate:2
+S|Pantalones|Jogging Bassic Negro|26900|22500|19600|17300|XL:Negro:1
+S|Pantalones|Jogging Bassic Gris Melange|26900|22500|19600|17300|XL:Gris Melange:3
+P|Pantalones|Jogging Pipa|37800|31800|27900|24700|M:Gris Melange:1
+P|Pantalones|Jogging Tres Lineas|37800|31800|27900|24700|M:Negro:1;L:Gris Melange:1;M:Gris Melange:1
+S|Bermudas|Bermuda Pecan|31800|26800|23600|20900|L:Pecan:1
+A|Medias|Medias|4200|3400|2800|2400|U:Gris:1;U:Gris Caro:2;U:Blanco:12;U:Verde:2;U:Azul:4;U:Rojo:1;U:Rosa:1;U:Celeste Pipa Negra:1;U:Marrón Pipa Negra:1;U:Naranja:1;U:Celeste Pipa Blanca:2;U:Beige Pipa Rosa:1;U:Beige Pipa Marrón:1;U:Negro:6;U:Byn:2;U:Celeste:3
+A|Medias|Medias 3 Lineas|4200|3400|2800|2400|U:Azul:2;U:Marrón:1;U:Verde:2;U:Celeste:2;U:Blanco Y Rojo:2;U:Lavanda:3
+A|Medias|Medias Retro|4200|3400|2800|2400|U:Blanco:2;U:Crema:1;U:Celeste:1
+A|Medias|Medias Sol|4200|3400|2800|2400|U:Azul:2
+A|Medias|Medias Línea|4200|3400|2800|2400|U:Verde:2;U:Celeste:1;U:Lila:3
+A|Medias|Medias Classic|4200|3400|2800|2400|U:Blanco:3
+A|Medias|Medias Línea Roja|4200|3400|2800|2400|U:Blanco:1
+A|Medias|Medias Cavs|4200|3400|2800|2400|U:Blanco:2;U:Negro:3
+A|Medias|Medias Escolares|4200|3400|2800|2400|U:Azul:3
+A|Medias|Medias Lucky|4200|3400|2800|2400|U:Negro:1
+S|Remeras|Morley|17900|15000|13100|11500|L:Negro:1;M:Negro:1;S:Negro:1;XL:Blanco:1
+P|Shorts|Celtics Beige|15400|12200|10100|8400|S:Beige:1
+P|Shorts|River Potrero|15400|12200|10100|8400|S:Negro:1
+P|Shorts|Pistons|15400|12200|10100|8400|S:Celeste:1
+P|Shorts|Lakers Negro|15400|12200|10100|8400|S:Negro:2
+P|Shorts|Negro Relamp|15400|12200|10100|8400|S:Byn:3
+P|Shorts|Raiders NFL|15400|12200|10100|8400|S:Gris:6
+P|Shorts|Celeste Relamp|15400|12200|10100|8400|L:Celeste:3;M:Celeste:1;S:Celeste:2;XL:Celeste:2
+P|Shorts|Raptors|15400|12200|10100|8400|L:Blanco:2;M:Blanco:1;S:Blanco:3;XXL:Blanco:2
+P|Shorts|Lakers Blanco|15400|12200|10100|8400|S:Blanco:1;XXL:Blanco:1
+P|Shorts|Short Importado Básico|13900|11400|9800|8500|XL:Rojo:1;XXL:Rojo:2;XL:Blanco:1;XXL:Blanco:2;XXL:Negro:1
+C|Ojotas|Adilette|22500|18000|15200|12800|38:Negro:2;40:Negro:3;42:Negro:3;44:Negro:1;36:Beige:1;38:Beige:2;40:Beige:2;42:Beige:2;44:Beige:3;38:Gris:1;40:Gris:2;42:Gris:4;44:Gris:2;38:Verde:1;40:Verde:5;42:Verde:4;44:Verde:3
+P|Buzos y camperas|Tracksuite Sport|59900|52600|48000|44100|XL:Negro:1;XXL:Negro:1
+A|Pulseras|Pulsera|3800|3800|3800|3800|U:001:1;U:002:1;U:003:1;U:004:1;U:005:1;U:006:1;U:007:1;U:008:1;U:009:1;U:010:1;U:011:1;U:012:1;U:013:1;U:014:1;U:015:1;U:016:1;U:017:1;U:018:1;U:019:1;U:020:1;U:021:1;U:022:1;U:023:1;U:024:1;U:025:1;U:026:1
+S|Remeras|Currently|23900|19900|17400|15200|S:Gris Topo:1;M:Gris M:1
+S|Remeras|Saintless|23900|19900|17400|15200|L:C-verde:1
+A|Relojes|Wr Vintage Redondo|18500|16300|14900|13700|U:Gris:6;U:Negro:1;U:Rosa:1
+A|Relojes|Wr Vintage Cuadrado|18500|18500|18500|18500|U:Negro:1;U:Rosa:2
+S|Remeras|Stilness Boxy Fit|24640|19700|16500|13900|L:Blanco:1
+S|Remeras|Limit-cemento Boxy Fit|24640|19700|16500|13900|M::1
+S|Remeras|Azul Lisa Boxy Fit|24640|18800|15100|11900|L::1
+S|Remeras|Street Blanca Boxy Fit|24640|20900|18500|16500|M::1
+S|Remeras|Hawk Tour White Boxy Fit|24640|20000|17000|14500|L::1;S::1
+S|Remeras|Hawk Tour Black|24640|20000|17000|14500|XL::1
+S|Remeras|Barca|24640|20400|17800|15500|S::1
+S|Remeras|SDA Araña|24640|20400|17800|15500|M::1;XL::1
+S|Remeras|Benito 10|24640|20400|17800|15500|L::1;M::1;XL::1
+S|Remeras|Alemania|24640|20400|17800|15500|M::1
+S|Remeras|Seven|24640|21500|19500|17800|XL::1
+S|Remeras|Grey 34|24640|21500|19500|17800|XL::1
+S|Remeras|All Starr|24640|21200|19000|17100|U:Gris:2;U:Rosa:1;U:Azul:1
+S|Remeras|Boxys Streetwise|24640|20900|18500|16500|L:Gris Oscuro:1;M:Gris Oscuro:1;L:Mármol:1
+P|Remeras|Chomba Fardo|23000|19400|17200|15200|L::3
+S|Remeras|Champagne|24640|20900|18500|16500|S:Chocolate:1;L:Natural:2
+S|Remeras|Dvsstudio|24640|20900|18500|16500|L:Mármol:1;M:Mármol:1;S:Negro:1
+S|Remeras|Coachela|24640|20900|18500|16500|L:Gris Oscuro:1;L:Chocolate:1;S:Natural:1
+S|Remeras|Over Bassic|24640|20900|18500|16500|M:Gris Oscuro:1;S:Gris Oscuro:2;M:Negro:1
+S|Remeras|Polo Confidence|24640|20900|18500|16500|M:Azul:1
+S|Remeras|Sparky|24640|20900|18500|16500|M:Pecan:1
+S|Remeras|Cuello V|24640|20900|18500|16500|M:Azul:1;S:Azul:1;M:Blanco:1
+P|Remeras|NBA Bassic Flight|24640|20300|17500|15100|XL:Rojo:1;XL:Negro:1;XXL:Negro:1
+P|Remeras|NBA Bassic Diagonal|24640|20300|17500|15100|XL:Blanco:1;XL:Negro:1;XXL:Negro:1
+P|Remeras|NBA Bassic Air|24640|20300|17500|15100|XL:Negro:1;XXL:Negro:1
+P|Remeras|NBA Full Estampa Bulls|24640|21200|19000|17100|XL:Negro:1;XXL:Negro:1
+S|Remeras|Mac Miller Boxy Fit|24640|20600|18000|15800|XL:Crema Con Rojo:1;L:Negro:1;L:Blanco:1
+S|Remeras|Drake Boxy Fit|24640|20600|18000|15800|L:Rojo:1;XL:Rojo:1
+P|Shorts|Fardo Negro Detalle|20000|17600|16100|14800|XL:Negro:1
+P|Shorts|Fardo 3 Lineas|20000|17600|16100|14800|S:Blanco:1
+P|Shorts|Fardo Big Pipa|24000|20400|18200|16200|L:Gris:1
+C|Zapatillas|Knu Caramel|48900|43000|39200|36000|39::1
+C|Zapatillas|SB Royal|48900|42800|39000|35700|38::1;39::1;41::1
+C|Zapatillas|SB Grey|55000|47100|42100|37800|39::1
+C|Zapatillas|SB Varsity|48900|43000|39200|36000|41::2
+C|Zapatillas|Knu Total White|48900|43000|39200|36000|34::1
+C|Zapatillas|Samba Pink|48900|42200|38000|34400|34::1
+C|Zapatillas|Retro Running|55000|48700|44800|41400|38::1;39::2;41::2;43::1
+C|Zapatillas|SB Gris|55000|48700|44800|41400|43::1
+C|Zapatillas|Samba Classic|55000|48700|44800|41400|43::1
+C|Zapatillas|Knu Total Black|55000|48700|44800|41400|39::1;40::2
+C|Zapatillas|AF1 X Drake|55000|48700|44800|41400|40::1;41::1;42::1
 `;
 
-/* ====== MODELO ====== */
 const NICHES = {S:"Streetwear", P:"Sportwear", C:"Calzado", A:"Accesorios"};
 const SIZE_ORDER = ["S","M","L","XL","2XL","XXL","3XL","XXXL"];
 const LINES = DATA.trim().split("\n").map((row, i) => {
   const [n, type, name, list, a, b, c, v] = row.split("|");
-  return {
-    id: "p" + i, niche: n, type, name, list: +list, t: [+a, +b, +c],
-    vars: v.split(";").map(s => { const [size, color, stock] = s.split(":"); return {size, color, stock: +stock}; })
-  };
+  return {id:"p"+i, niche:n, type, name, list:+list, t:[+a,+b,+c], vars:v.split(";").map(s => {const [size,color,stock]=s.split(":");return {size,color,stock:+stock}})};
 });
 const BYID = Object.fromEntries(LINES.map(l => [l.id, l]));
-LINES.forEach(l => { l.stock = l.vars.reduce((s, v) => s + v.stock, 0); });
+LINES.forEach(l => { l.stock = l.vars.reduce((s,v) => s+v.stock, 0); });
+LINES.sort((x,y)=>((photoOf(x.name)?0:1)-(photoOf(y.name)?0:1))||(y.stock-x.stock));
 
 const POOLS = {};
-function pool(key, label, fn) {
-  const l = LINES.find(fn);
-  POOLS[key] = {label, t: l ? l.t : [0,0,0], list: l ? l.list : 0};
-}
-pool("nbaRem",  "Remeras NBA Basic (Jordan)", l => l.name.startsWith("NBA Basic"));
-pool("nbaShort","Shorts NBA",                 l => l.type === "Shorts" && l.name.startsWith("NBA "));
-pool("dia",     "Short Diamond importado",    l => l.name === "Diamond Importado");
-pool("boxy",    "Remeras boxy",               l => l.name === "Boxys Streetwise");
-pool("jogB",    "Bermudas jogging",           l => l.name === "Bermuda Jogging Classic");
-pool("bagB",    "Bermudas baggy",             l => l.name === "Bermuda Baggy Duki");
-pool("ojo",     "Ojotas Adilette",            l => l.name === "Adilette");
-pool("med",     "Medias",                     l => l.name === "Medias Nike");
-pool("zap",     "Zapatillas",                 l => l.name === "Nike Retro Running");
-
+function pool(key, label, fn){const l=LINES.find(fn);POOLS[key]={label,t:l?l.t:[0,0,0],list:l?l.list:0,ok:!!l}}
+pool("nbaRem","Remeras NBA Bassic",l=>l.name==="NBA Bassic Flight");
+pool("nbaShort","Shorts NBA",l=>l.name==="Celeste Relamp");
+pool("dia","Short importado",l=>l.name==="Short Importado");
+pool("boxy","Remeras boxy",l=>l.name==="Boxys Streetwise");
+pool("jogB","Bermudas jogging",l=>l.name==="Jogging Classic");
+pool("bagB","Bermudas baggy",l=>l.name==="Bermuda Dream");
+pool("ojo","Ojotas Adilette",l=>l.name==="Adilette");
+pool("med","Medias",l=>l.name==="Medias");
+pool("zap","Zapatillas",l=>l.name==="Retro Running");
 const COMBOS = [
-  {id:"c7", tag:"Shorts",     name:"Pack Short Diamond x5", blurb:"5 shorts importados a $20.000 cada uno. Elegís colores y talles entre los que hay.", items:[["dia",5]], fixed:100000},
-  {id:"c1", tag:"Sportwear",  name:"Sport Start",  blurb:"Lo que más sale en deportivo: remeras NBA y shorts para arrancar.", items:[["nbaRem",3],["nbaShort",3]]},
-  {id:"c2", tag:"Sportwear",  name:"Sport Jordan", blurb:"Remeras Jordan más short Diamond importado. Combo para el feed.",   items:[["nbaRem",5],["dia",5]]},
-  {id:"c3", tag:"Streetwear", name:"Street Start", blurb:"Remeras boxy y bermudas jogging: el fit básico de todos los días.", items:[["boxy",3],["jogB",3]]},
-  {id:"c4", tag:"Streetwear", name:"Street Fit",   blurb:"Remeras, bermudas, ojotas y medias para armar fits completos.",      items:[["boxy",3],["jogB",2],["bagB",2],["ojo",2],["med",1]]},
-  {id:"c5", tag:"Full",       name:"Emprendedor",  blurb:"Un poco de todo para abrir tu showroom o tu tienda en redes.",       items:[["boxy",3],["jogB",2],["bagB",1],["nbaRem",2],["nbaShort",2],["ojo",2],["med",4]], big:true},
-  {id:"c6", tag:"Full",       name:"Showroom",     blurb:"El surtido grande: streetwear, sportwear, calzado y accesorios. Entra en precio x20.", items:[["boxy",4],["jogB",2],["bagB",1],["nbaRem",2],["nbaShort",2],["dia",1],["zap",1],["ojo",2],["med",5]], big:true}
-];
-const tierIdx = u => u >= 20 ? 2 : u >= 10 ? 1 : 0;
-function comboAt(c, ti) {
-  const u = c.items.reduce((s, [, q]) => s + q, 0);
-  if (c.fixed) { const list = c.items.reduce((s, [k, q]) => s + POOLS[k].list * q, 0); return {u, tier:u, base:c.fixed, final:c.fixed, list, disc:false}; }   // pack con precio fijo (27/10: shorts x5 $20.000 c/u)
-  const base = c.items.reduce((s, [k, q]) => s + POOLS[k].t[ti] * q, 0);
-  const final = base > COMBO_THRESHOLD ? Math.round(base * (1 - COMBO_DISCOUNT) / 100) * 100 : base;
-  const list = c.items.reduce((s, [k, q]) => s + POOLS[k].list * q, 0);
-  return {u, tier:[3,10,20][ti], base, final, list, disc: final < base};
-}
-function comboCalc(c) { return comboAt(c, tierIdx(c.items.reduce((s, [, q]) => s + q, 0))); }
-COMBOS.forEach(c => { c.calc = comboCalc(c); });
+  {id:"c1",tag:"Sportwear",name:"Sport Start",blurb:"Lo que más sale en deportivo: remeras NBA y shorts para arrancar.",items:[["nbaRem",3],["nbaShort",3]]},
+  {id:"c2",tag:"Sportwear",name:"Sport Jordan",blurb:"Remeras NBA más short importado. Pack para el feed.",items:[["nbaRem",5],["dia",5]]},
+  {id:"c7",tag:"Sportwear",name:"Pack Diamond x5",blurb:"5 shorts importados premium surtidos en talles y colores. Los que más pegan en el feed.",items:[["dia",5]]},
+  {id:"c3",tag:"Streetwear",name:"Street Start",blurb:"Remeras boxy y bermudas jogging: el fit básico de todos los días.",items:[["boxy",3],["jogB",3]]},
+  {id:"c4",tag:"Streetwear",name:"Street Fit",blurb:"Remeras, bermudas, ojotas y medias para armar fits completos.",items:[["boxy",3],["jogB",2],["bagB",2],["ojo",2],["med",1]]},
+  {id:"c5",tag:"Full",name:"Emprendedor",blurb:"Un poco de todo para abrir tu showroom o tu tienda en redes.",items:[["boxy",3],["jogB",2],["bagB",1],["nbaRem",2],["nbaShort",2],["ojo",2],["med",4]],big:true},
+  {id:"c6",tag:"Full",name:"Tienda Full",blurb:"El surtido grande: streetwear, sportwear, calzado y accesorios. Entra en precio x20.",items:[["boxy",4],["jogB",2],["bagB",1],["nbaRem",2],["nbaShort",2],["dia",1],["zap",1],["ojo",2],["med",5]],big:true}
+].filter(c => c.items.every(([k]) => POOLS[k].ok));
+const tierIdx = u => u>=20?2:u>=10?1:0;
+function comboAt(c,ti){const u=c.items.reduce((s,[,q])=>s+q,0);const base=c.items.reduce((s,[k,q])=>s+POOLS[k].t[ti]*q,0);const final=base>COMBO_THRESHOLD?Math.round(base*(1-COMBO_DISCOUNT)/100)*100:base;const list=c.items.reduce((s,[k,q])=>s+POOLS[k].list*q,0);return{u,tier:[3,10,20][ti],base,final,list,disc:final<base}}
+COMBOS.forEach(c => { c.calc = comboAt(c, tierIdx(c.items.reduce((s,[,q])=>s+q,0))); });
 
 /* ====== UTILIDADES ====== */
 const money = n => "$" + Math.round(n).toLocaleString("es-AR");
 const esc = s => String(s).replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
 const $ = id => document.getElementById(id);
-const sizeLabel = s => s === "U" ? "Talle único" : "Talle " + s;
-function sortVars(vars) {
-  return vars.slice().sort((a, b) => {
-    const ra = SIZE_ORDER.indexOf(a.size), rb = SIZE_ORDER.indexOf(b.size);
-    const na = parseFloat(a.size), nb = parseFloat(b.size);
-    const ka = ra >= 0 ? ra : (isNaN(na) ? 99 : na), kb = rb >= 0 ? rb : (isNaN(nb) ? 99 : nb);
-    return ka - kb || a.color.localeCompare(b.color);
-  });
-}
-const vKey = (id, v) => id + "~" + v.size + "~" + v.color;
+const sizeLabel = s => s==="U" ? "Talle único" : "Talle " + s;
+function sortVars(vars){return vars.slice().sort((a,b)=>{const ra=SIZE_ORDER.indexOf(a.size),rb=SIZE_ORDER.indexOf(b.size),na=parseFloat(a.size),nb=parseFloat(b.size);const ka=ra>=0?ra:(isNaN(na)?99:na),kb=rb>=0?rb:(isNaN(nb)?99:nb);return ka-kb||a.color.localeCompare(b.color)})}
+const vKey = (id,v) => id+"~"+v.size+"~"+v.color;
 
 /* ====== ESTADO ====== */
-const state = {niche:"all", type:"all", q:"", cart:{}, combos:{}, sheet:null};
-const looseUnits = () => Object.values(state.cart).reduce((s, i) => s + i.qty, 0);
-const comboUnits = () => COMBOS.reduce((s, c) => s + (state.combos[c.id] || 0) * c.calc.u, 0);
-const totalUnits = () => looseUnits() + comboUnits();
-const activeTier = () => { const u = totalUnits(); return u >= 3 ? tierIdx(u) : -1; };
-const priceTier = () => Math.max(activeTier(), 0);
+const state = {niche:"all",type:"all",q:"",cart:{},combos:{},sheet:null};
+const looseUnits=()=>Object.values(state.cart).reduce((s,i)=>s+i.qty,0);
+const comboUnits=()=>COMBOS.reduce((s,c)=>s+(state.combos[c.id]||0)*c.calc.u,0);
+const totalUnits=()=>looseUnits()+comboUnits();
+const activeTier=()=>{const u=totalUnits();return u>=3?tierIdx(u):-1};
+const priceTier=()=>Math.max(activeTier(),0);
+const looseTotal=ti=>Object.values(state.cart).reduce((s,i)=>s+BYID[i.id].t[ti]*i.qty,0);
+const combosTotal=ti=>COMBOS.reduce((s,c)=>s+(state.combos[c.id]||0)*comboAt(c,ti).final,0);
+const orderTotalAt=ti=>looseTotal(ti)+combosTotal(ti);
+const grandTotal=()=>orderTotalAt(priceTier());
+const canSend=()=>totalUnits()>=3;
+function setQty(id,v,qty){const k=vKey(id,v);qty=Math.max(0,Math.min(v.stock,qty));if(qty===0)delete state.cart[k];else state.cart[k]={id,size:v.size,color:v.color,stock:v.stock,qty};refresh()}
+function setCombo(id,qty){qty=Math.max(0,Math.min(9,qty));if(qty===0)delete state.combos[id];else state.combos[id]=qty;refresh()}
 
-function looseTotal(ti) {
-  return Object.values(state.cart).reduce((s, i) => s + BYID[i.id].t[ti] * i.qty, 0);
+/* ====== HERO: collage + parallax ====== */
+function buildWall(){
+  const cols=innerWidth<=760?4:6,groups=Array.from({length:cols},()=>[]);
+  HERO.forEach((f,i)=>groups[i%cols].push(f));
+  $("wall").innerHTML=groups.map((g,i)=>{const html=g.map(f=>`<img src="${HIMG(f)}" alt="" decoding="async">`).join("");return `<div class="col" style="--t:${58+i*9}s">${html}${html}</div>`}).join("");
 }
-const combosTotal = ti => COMBOS.reduce((s, c) => s + (state.combos[c.id] || 0) * comboAt(c, ti).final, 0);
-const orderTotalAt = ti => looseTotal(ti) + combosTotal(ti);
-const grandTotal = () => orderTotalAt(priceTier());
-const canSend = () => totalUnits() >= 3;
-
-function setQty(id, v, qty) {
-  const k = vKey(id, v);
-  qty = Math.max(0, Math.min(v.stock, qty));
-  if (qty === 0) delete state.cart[k]; else state.cart[k] = {id, size:v.size, color:v.color, stock:v.stock, qty};
-  refresh();
+function buildTicker(){
+  const items=["Envío gratis desde $125.000","Despacho en 24 h","Comprá + pagá -","2 puntos de retiro: San Juan y CABA","Stock real al día","Mayorista desde 3 unidades"];
+  const one=items.map(t=>`<span>${t}</span>`).join("");
+  $("tick").innerHTML=one+one+one+one;
 }
-function setCombo(id, qty) {
-  qty = Math.max(0, Math.min(9, qty));
-  if (qty === 0) delete state.combos[id]; else state.combos[id] = qty;
-  refresh();
+try{$("nlWa").href="https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent("Hola! Quiero sumarme al grupo mayorista de Bona Street para recibir novedades y stock.")}catch(e){}
+/* ====== ESCALERA ====== */
+function renderStairs(){
+  const ex=LINES.find(l=>l.name==="Boxys Streetwise")||LINES[0];
+  const rows=[["3+",ex.t[0]],["10+",ex.t[1]],["20+",ex.t[2]]];
+  $("stairs").innerHTML=rows.map(([q,p],i)=>{const off=Math.round((1-p/ex.list)*100);return `<div class="stair rv" style="--d:${i*.1}s"><span class="q">${q} PRENDAS</span><span class="p" data-count="${p}">${money(ex.list)}</span><span class="off">${off}% OFF</span><span class="was">lista ${money(ex.list)}</span></div>`}).join("");
+  $("stairsNote").textContent=`Ejemplo con la remera ${ex.name}. El precio por prenda lo define el total de unidades del pedido.`;
 }
-
-/* ====== RENDER: HERO / COMBOS ====== */
-function renderStairs() {
-  const ex = LINES.find(l => l.name === "Boxys Streetwise") || LINES[0];
-  const rows = [["3+", ex.t[0]], ["10+", ex.t[1]], ["20+", ex.t[2]]];
-  $("stairs").innerHTML = rows.map(([q, p]) => {
-    const off = Math.round((1 - p / ex.list) * 100);
-    return `<div class="stair"><span class="q">${q} PRENDAS</span><span class="p">${money(p)}</span><span class="off">${off}% OFF</span><span class="was">lista ${money(ex.list)}</span></div>`;
-  }).join("");
-  $("stairsNote").textContent = `Ejemplo con la remera ${ex.name}. Mezclá productos: el precio por prenda lo define el total de unidades del pedido.`;
-}
-function renderCombos() {
-  $("combosGrid").innerHTML = COMBOS.map(c => {
-    const k = c.calc, pp = k.final / k.u;
-    const lis = c.items.map(([p, q]) => `<li><span>${esc(POOLS[p].label)}</span><b>${q} u.</b></li>`).join("");
-    return `<article class="combo${c.big ? " big" : ""}">
-      <span class="tag">${esc(c.tag)}</span>
-      <h3>${esc(c.name)}</h3>
-      <p class="blurb">${esc(c.blurb)}</p>
-      <ul>${lis}</ul>
-      <div class="meta"><span>${k.u} prendas</span><span>precio x${k.tier}</span>${k.disc ? "<span>" + Math.round(COMBO_DISCOUNT * 100) + "% extra incluido</span>" : ""}<span>≈ ${money(pp)} c/u</span></div>
-      <div class="price"><div class="big">${money(k.final)}</div><div class="small">lista minorista<br><s>${money(k.list)}</s></div></div>
-      <div class="actions"><button class="btn" type="button" data-combo="${c.id}">Agregar combo</button></div>
-      <p class="incart" data-cb="${c.id}"></p>
-    </article>`;
+function countUp(el){const to=+el.dataset.count,from=+el.dataset.from||to*1.3,t0=performance.now(),dur=1100;const step=now=>{const k=Math.min(1,(now-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=money(from+(to-from)*e);if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)}
+/* ====== HISTORIAS ====== */
+function buildStack(){
+  const groups=[
+    {c:"s1",t:"Remeras",p:"Boxy, estampadas y NBA. Lo que más sale.",f:["rem_nbaflight","rem_drake","rem_boxys"],f2:l=>l.type==="Remeras",btn:"Ver remeras",type:"Remeras"},
+    {c:"s2",t:"Shorts y bermudas",p:"Del short importado a la bermuda baggy.",f:["dia_azul","sho_relamp","ber_dream"],f2:l=>l.type==="Shorts"||l.type==="Bermudas",btn:"Ver shorts y bermudas",type:"Shorts"},
+    {c:"s3",t:"Calzado",p:"Zapatillas SB, Retro Running, Samba y más.",f:["zap_sbroyal","zap_retro","zap_samba"],f2:l=>l.type==="Zapatillas"||l.type==="Ojotas",btn:"Ver calzado",type:"Zapatillas"},
+    {c:"s4",t:"Joggings y accesorios",p:"Joggings, medias, collares y pulseras para completar el pedido.",f:["jog_premium","col_big","pul_001"],f2:l=>["Pantalones","Medias","Collares","Pulseras","Relojes"].includes(l.type),btn:"Ver accesorios",type:"Medias"}
+  ];
+  $("stack").innerHTML=groups.map(g=>{
+    const ls=LINES.filter(g.f2),u=ls.reduce((s,l)=>s+l.stock,0);
+    const pos=[["4%","8%",-5],["30%","30%",3],["54%","4%",-2]];
+    const imgs=g.f.map((f,i)=>`<img src="${IMG(f)}" alt="" loading="lazy" data-sp="${[.06,-.05,.09][i]}" style="left:${pos[i][0]};top:${pos[i][1]};--r:${pos[i][2]}deg">`).join("");
+    return `<article class="story ${g.c}"><div class="tx"><span class="eyebrow">${ls.length} modelos</span><h3>${g.t}</h3><p>${g.p}</p><span class="count">${u} unidades disponibles</span><div><button class="btn line small" type="button" data-go="${esc(g.type)}">${g.btn}</button></div></div><div class="ph">${imgs}</div></article>`;
   }).join("");
 }
-
-/* ====== RENDER: CATÁLOGO ====== */
-function visibleLines() {
-  const q = state.q.trim().toLowerCase();
-  return LINES.filter(l =>
-    (state.niche === "all" || l.niche === state.niche) &&
-    (state.type === "all" || l.type === state.type) &&
-    (!q || (l.name + " " + l.type + " " + l.vars.map(v => v.color).join(" ")).toLowerCase().includes(q)));
+/* ====== PACKS ====== */
+function renderCombos(){
+  $("combosGrid").innerHTML=COMBOS.map((c,ci)=>{const k=c.calc,pp=k.final/k.u;const lis=c.items.map(([p,q])=>`<li><span>${esc(POOLS[p].label)}</span><b>${q} u.</b></li>`).join("");
+    return `<article class="combo rv${c.big?" big":""}" style="--d:${(ci%3)*.08}s"><span class="tag">${esc(c.tag)}</span><h3>${esc(c.name)}</h3><p class="blurb">${esc(c.blurb)}</p><ul>${lis}</ul><div class="meta"><span>${k.u} prendas</span><span>precio x${k.tier}</span>${k.disc?`<span>${Math.round(COMBO_DISCOUNT*100)}% extra incluido</span>`:""}<span>≈ ${money(pp)} c/u</span></div><div class="price"><div class="big">${money(k.final)}</div><div class="small">lista minorista<br><s>${money(k.list)}</s></div></div><div class="actions"><button class="btn" type="button" data-combo="${c.id}">Agregar pack</button></div><p class="incart" data-cb="${c.id}"></p></article>`}).join("");
 }
-function renderTabs() {
-  const all = [["all", "Todo", LINES.length]].concat(Object.entries(NICHES).map(([k, n]) => [k, n, LINES.filter(l => l.niche === k).length]));
-  $("tabs").innerHTML = all.map(([k, n, c]) => `<button class="tab" type="button" data-niche="${k}" aria-pressed="${state.niche === k}">${n}<span class="c">${c}</span></button>`).join("");
-  const pool = LINES.filter(l => state.niche === "all" || l.niche === state.niche);
-  const types = [...new Set(pool.map(l => l.type))];
-  $("chips").innerHTML = [`<button class="chip" type="button" data-type="all" aria-pressed="${state.type === "all"}">Todos</button>`]
-    .concat(types.map(t => `<button class="chip" type="button" data-type="${esc(t)}" aria-pressed="${state.type === t}">${esc(t)}</button>`)).join("");
+/* ====== CATÁLOGO ====== */
+function visibleLines(){const q=state.q.trim().toLowerCase();return LINES.filter(l=>(state.niche==="all"||l.niche===state.niche)&&(state.type==="all"||l.type===state.type)&&(!q||(l.name+" "+l.type+" "+l.vars.map(v=>v.color).join(" ")).toLowerCase().includes(q)))}
+function renderTabs(){
+  const all=[["all","Todo",LINES.length]].concat(Object.entries(NICHES).map(([k,n])=>[k,n,LINES.filter(l=>l.niche===k).length]));
+  $("tabs").innerHTML=all.map(([k,n,c])=>`<button class="tab" type="button" data-niche="${k}" aria-pressed="${state.niche===k}">${n}<span class="c">${c}</span></button>`).join("");
+  const pl=LINES.filter(l=>state.niche==="all"||l.niche===state.niche),types=[...new Set(pl.map(l=>l.type))];
+  $("chips").innerHTML=[`<button class="chip" type="button" data-type="all" aria-pressed="${state.type==="all"}">Todos</button>`].concat(types.map(t=>`<button class="chip" type="button" data-type="${esc(t)}" aria-pressed="${state.type===t}">${esc(t)}</button>`)).join("");
 }
-function renderGrid() {
-  const ls = visibleLines();
-  if (!ls.length) { $("grid").innerHTML = ""; $("grid").insertAdjacentHTML("afterend", ""); $("grid").innerHTML = `<p class="empty" style="grid-column:1/-1">No encontramos nada con ese filtro. Probá con otra búsqueda.</p>`; return; }
-  $("grid").innerHTML = ls.map(l => {
-    const img = IMAGES[l.name] ? `<img src="${esc(IMAGES[l.name])}" alt="${esc(l.name)}" loading="lazy">` : "";
-    const nVar = new Set(l.vars.map(v => v.size)).size;
-    const sub = l.type + (nVar > 1 ? " · " + nVar + " talles" : "");
-    return `<article class="card" data-card="${l.id}">
-      <div class="tile n-${l.niche}">
-        <span class="tt">${esc(NICHES[l.niche])}</span>
-        <span class="tn">${esc(l.name)}</span>
-        ${img}
-        <span class="stk">${l.stock} u.</span>
-      </div>
-      <div class="info">
-        <div><h3>${esc(l.name)}</h3><p class="sub">${esc(sub)}</p></div>
-        <div class="ladder">${[0,1,2].map(i => `<div class="rung" data-r="${i}"><b>x${[3,10,20][i]}</b><span>${money(l.t[i])}</span></div>`).join("")}</div>
-        <p class="inbag" data-bag="${l.id}"></p>
-        <a class="photolink" href="${photoLink(l)}" target="_blank" rel="noopener">Ver fotos ↗</a>
-        <button class="btn line small" type="button" data-open="${l.id}">Elegir talles</button>
-      </div>
-    </article>`;
-  }).join("");
+function renderGrid(){
+  const ls=visibleLines();
+  if(!ls.length){$("grid").innerHTML=`<p class="empty" style="grid-column:1/-1">No encontramos nada con ese filtro. Probá con otra búsqueda.</p>`;return}
+  $("grid").innerHTML=ls.map(l=>{const ph=photoOf(l.name),img=ph?`<img src="${IMG(ph)}" alt="${esc(l.name)}" loading="lazy" decoding="async">`:"",nVar=new Set(l.vars.map(v=>v.size)).size,sub=l.type+(nVar>1?" · "+nVar+" talles":"");
+    return `<article class="card" data-card="${l.id}"><div class="tile n-${l.niche}"><span class="tt">${esc(NICHES[l.niche])}</span><span class="tn">${ph?"":esc(l.name)}</span>${img}<span class="stk">${l.stock} u.</span></div><div class="info"><div><h3>${esc(l.name)}</h3><p class="sub">${esc(sub)}</p></div><div class="ladder">${[0,1,2].map(i=>`<div class="rung" data-r="${i}"><b>x${[3,10,20][i]}</b><span>${money(l.t[i])}</span></div>`).join("")}</div><p class="inbag" data-bag="${l.id}"></p><button class="btn line small" type="button" data-open="${l.id}">Elegir talles</button></div></article>`}).join("");
   paintCards();
 }
-function paintCards() {
-  const at = activeTier();
-  document.querySelectorAll("[data-card]").forEach(card => {
-    card.querySelectorAll(".rung").forEach(r => r.classList.toggle("on", +r.dataset.r === at));
-  });
-  document.querySelectorAll("[data-bag]").forEach(el => {
-    const n = Object.values(state.cart).filter(i => i.id === el.dataset.bag).reduce((s, i) => s + i.qty, 0);
-    el.textContent = n ? n + (n === 1 ? " en tu pedido" : " en tu pedido") : "";
-  });
-  document.querySelectorAll("[data-cb]").forEach(el => {
-    const n = state.combos[el.dataset.cb] || 0;
-    el.textContent = n ? "En tu pedido: " + n : "";
-  });
+function paintCards(){
+  const at=activeTier();
+  document.querySelectorAll("[data-card]").forEach(c=>c.querySelectorAll(".rung").forEach(r=>r.classList.toggle("on",+r.dataset.r===at)));
+  document.querySelectorAll("[data-bag]").forEach(el=>{const n=Object.values(state.cart).filter(i=>i.id===el.dataset.bag).reduce((s,i)=>s+i.qty,0);el.textContent=n?n+" en tu pedido":""});
+  document.querySelectorAll("[data-cb]").forEach(el=>{const n=state.combos[el.dataset.cb]||0;el.textContent=n?"En tu pedido: "+n:""});
 }
-
-/* ====== BARRA + REFRESH ====== */
-let _pxU = 0;   /* eventos del píxel de Meta */
-function pxTrack(e, p) { try { window.fbq && fbq('track', e, p || {}); } catch (x) {} }
-function refresh() {
-  const lu = looseUnits(), cu = comboUnits(), total = grandTotal();
-  { const tu = lu + cu; if (tu > _pxU) pxTrack('AddToCart', {value: total, currency: 'ARS', num_items: tu}); _pxU = tu; }
-  const tu = lu + cu, nc = Object.values(state.combos).reduce((s, n) => s + n, 0);
-  $("barS").textContent = tu ? tu + (tu === 1 ? " prenda" : " prendas") + (tu >= 3 ? " · precio x" + [3,10,20][tierIdx(tu)] : "") : "0 prendas";
-  $("barT").textContent = money(total);
-  $("bar").classList.toggle("show", lu + nc > 0);
-  $("topN").textContent = lu + cu;
-  paintCards();
-  if (state.sheet) renderSheet(true);
+function refresh(){
+  const lu=looseUnits(),cu=comboUnits(),total=grandTotal(),tu=lu+cu,nc=Object.values(state.combos).reduce((s,n)=>s+n,0);
+  $("barS").textContent=tu?tu+(tu===1?" prenda":" prendas")+(tu>=3?" · precio x"+[3,10,20][tierIdx(tu)]:" · faltan "+(3-tu)+" para el mínimo"):"0 prendas";
+  if(tu>_pxU)pxTrack("AddToCart",{value:total,currency:"ARS",num_items:tu});_pxU=tu;$("barT").textContent=money(total);$("bar").classList.toggle("show",lu+nc>0);$("topN").textContent=lu+cu;paintCards();if(state.sheet)renderSheet(true);
 }
-
-/* ====== HOJAS (variantes / pedido) ====== */
-function openSheet(kind, id) { state.sheet = {kind, id}; $("ov").classList.add("open"); $("ov").setAttribute("aria-hidden", "false"); renderSheet(false); document.body.style.overflow = "hidden"; }
-function closeSheet() { state.sheet = null; $("ov").classList.remove("open"); $("ov").setAttribute("aria-hidden", "true"); document.body.style.overflow = ""; }
-
-function ladderHtml(l) {
-  const at = activeTier();
-  return `<div class="ladder" style="margin-bottom:6px">${[0,1,2].map(i => `<div class="rung${i === at ? " on" : ""}"><b>x${[3,10,20][i]}</b><span>${money(l.t[i])}</span></div>`).join("")}</div>`;
+/* ====== HOJAS ====== */
+function openSheet(kind,id){state.sheet={kind,id};$("ov").classList.add("open");$("ov").setAttribute("aria-hidden","false");renderSheet(false);document.body.style.overflow="hidden"}
+function closeSheet(){state.sheet=null;$("ov").classList.remove("open");$("ov").setAttribute("aria-hidden","true");document.body.style.overflow=""}
+function ladderHtml(l){const at=activeTier();return `<div class="ladder" style="margin-bottom:6px">${[0,1,2].map(i=>`<div class="rung${i===at?" on":""}"><b>x${[3,10,20][i]}</b><span>${money(l.t[i])}</span></div>`).join("")}</div>`}
+function renderSheet(keep){const sh=$("sheet"),top=keep?sh.scrollTop:0;sh.innerHTML=state.sheet.kind==="var"?varSheet(BYID[state.sheet.id]):cartSheet();sh.scrollTop=top}
+function varSheet(l){
+  const ti=priceTier(),rows=sortVars(l.vars).map(v=>{const q=(state.cart[vKey(l.id,v)]||{}).qty||0,left=v.stock-q;
+    return `<div class="vrow"><div class="l"><b>${esc(sizeLabel(v.size))}${v.color?" · "+esc(v.color):""}</b><small>${v.stock===1?"queda 1 unidad":"quedan "+v.stock+" unidades"}</small></div><div class="stp"><button type="button" data-dec="${esc(vKey(l.id,v))}" aria-label="Quitar una" ${q?"":"disabled"}>−</button><output>${q}</output><button type="button" data-inc="${esc(vKey(l.id,v))}" aria-label="Sumar una" ${left>0?"":"disabled"}>+</button></div></div>`}).join("");
+  const mine=Object.values(state.cart).filter(i=>i.id===l.id),mu=mine.reduce((s,i)=>s+i.qty,0),ph=photoOf(l.name);
+  return `<div class="hd"><div><h3 id="sheetTitle">${esc(l.name)}</h3><p>${esc(NICHES[l.niche])} · ${esc(l.type)} · lista ${money(l.list)}</p></div><button class="x" type="button" data-close aria-label="Cerrar">×</button></div>${ph?`<img src="${IMG(ph)}" alt="${esc(l.name)}" style="width:100%;max-height:240px;object-fit:cover;border-radius:12px;margin-bottom:12px">`:""}${ladderHtml(l)}<p class="fine" style="margin:0 0 8px">${activeTier()<0?"Con 3 prendas en tu pedido se activa el precio mayorista.":"Tu pedido está en precio x"+[3,10,20][ti]+"."}</p>${rows}<div class="sum"><span>${mu} ${mu===1?"prenda":"prendas"} de este modelo</span><b>${money(mu*l.t[ti])}</b></div><div class="acts"><button class="btn" type="button" data-close>Listo</button>${looseUnits()+comboUnits()>0?`<button class="btn line" type="button" data-gocart>Ver mi pedido</button>`:""}</div>`;
 }
-function renderSheet(keepScroll) {
-  const sh = $("sheet"), top = keepScroll ? sh.scrollTop : 0;
-  if (state.sheet.kind === "var") sh.innerHTML = varSheet(BYID[state.sheet.id]);
-  else sh.innerHTML = cartSheet();
-  sh.scrollTop = top;
-}
-function varSheet(l) {
-  const ti = priceTier(), rows = sortVars(l.vars).map(v => {
-    const q = (state.cart[vKey(l.id, v)] || {}).qty || 0;
-    const left = v.stock - q;
-    return `<div class="vrow"><div class="l"><b>${esc(sizeLabel(v.size))}${v.color ? " · " + esc(v.color) : ""}</b><small>${v.stock === 1 ? "queda 1 unidad" : "quedan " + v.stock + " unidades"}</small></div>
-      <div class="stp"><button type="button" data-dec="${esc(vKey(l.id, v))}" aria-label="Quitar una" ${q ? "" : "disabled"}>−</button><output>${q}</output><button type="button" data-inc="${esc(vKey(l.id, v))}" aria-label="Sumar una" ${left > 0 ? "" : "disabled"}>+</button></div></div>`;
-  }).join("");
-  const mine = Object.values(state.cart).filter(i => i.id === l.id), mu = mine.reduce((s, i) => s + i.qty, 0);
-  return `<div class="hd"><div><h3 id="sheetTitle">${esc(l.name)}</h3><p>${esc(NICHES[l.niche])} · ${esc(l.type)} · lista ${money(l.list)}</p></div><button class="x" type="button" data-close aria-label="Cerrar">×</button></div>
-    ${ladderHtml(l)}
-    <p class="fine" style="margin:0 0 8px">${activeTier() < 0 ? "Con 3 prendas en tu pedido se activa el precio mayorista." : "Tu pedido está en precio x" + [3,10,20][ti] + "."}</p>
-    ${rows}
-    <div class="sum"><span>${mu} ${mu === 1 ? "prenda" : "prendas"} de este modelo</span><b>${money(mu * l.t[ti])}</b></div>
-    <div class="acts"><button class="btn" type="button" data-close>Listo</button>${looseUnits() + comboUnits() > 0 ? `<button class="btn line" type="button" data-gocart>Ver mi pedido</button>` : ""}</div>`;
-}
-function nextTierInfo() {
-  const lu = totalUnits();
-  if (lu === 0) return null;
-  if (lu < 3) return {warn:true, text:`Sumá ${3 - lu} ${3 - lu === 1 ? "prenda" : "prendas"} más para activar el precio mayorista (desde 3 unidades).`};
-  const ti = tierIdx(lu);
-  if (ti === 2) return {warn:false, text:"Estás en el mejor precio: x20."};
-  const need = (ti === 0 ? 10 : 20) - lu, next = ti + 1;
-  const save = orderTotalAt(ti) - orderTotalAt(next);
-  return {warn:false, text:`Sumá ${need} ${need === 1 ? "prenda" : "prendas"} más y todo tu pedido pasa a precio x${[3,10,20][next]}. Con lo que ya elegiste, hoy te ahorrarías ${money(save)}.`};
-}
-const SRC = (() => { try { const q = new URLSearchParams(location.search), s = q.get("utm_source") || q.get("s"); if (s) sessionStorage.setItem("src", s); return sessionStorage.getItem("src") || ""; } catch (e) { return ""; } })();
-function orderMessage() {
-  const ti = priceTier(), out = ["Hola Bona Street! Quiero hacer este pedido mayorista:", ""];
-  const cs = COMBOS.filter(c => state.combos[c.id]);
-  if (cs.length) { out.push("COMBOS"); cs.forEach(c => out.push(`• ${state.combos[c.id]}× ${c.name} (${c.calc.u} prendas) — ${money(comboAt(c, ti).final * state.combos[c.id])}`)); out.push("(Talles y colores del combo: los coordinamos por acá)"); out.push(""); }
-  const byLine = {};
-  Object.values(state.cart).forEach(i => { (byLine[i.id] = byLine[i.id] || []).push(i); });
-  const ids = Object.keys(byLine);
-  if (ids.length) {
-    out.push(`PRENDAS SUELTAS (precio x${[3,10,20][ti]})`);
-    ids.forEach(id => {
-      const l = BYID[id], its = byLine[id], u = its.reduce((s, i) => s + i.qty, 0);
-      out.push(`• ${l.name} — ${its.map(i => `${i.size === "U" ? "único" : i.size}${i.color ? " " + i.color : ""} ×${i.qty}`).join(", ")} — ${u} × ${money(l.t[ti])} = ${money(u * l.t[ti])}`);
-    });
-    out.push("");
-  }
-  out.push(`Precio x${[3,10,20][ti]} (${totalUnits()} prendas en total)`);
-  out.push("TOTAL: " + money(grandTotal()));
-  if (SRC) out.push("Origen: " + SRC);
-  out.push("Pago por transferencia o efectivo. Retiro / envío a: ");
-  out.push("");
-  out.push("— Para despachar tu pedido: realizá el pago al alias *bonastreet* (cuenta de Mercado Pago a nombre de Alba Lucía Segovia Noguera) así generamos tu etiqueta de envío. ¡Tu pedido sale dentro de las próximas 24 hs!");
+function nextTierInfo(){const lu=totalUnits();if(lu===0)return null;if(lu<3)return{warn:true,text:`Sumá ${3-lu} ${3-lu===1?"prenda":"prendas"} más para llegar al mínimo de 3 unidades surtidas y activar el precio mayorista.`};const ti=tierIdx(lu);if(ti===2)return{warn:false,text:"Estás en el mejor precio: x20."};const need=(ti===0?10:20)-lu,next=ti+1,save=orderTotalAt(ti)-orderTotalAt(next);return{warn:false,text:`Sumá ${need} ${need===1?"prenda":"prendas"} más y todo tu pedido pasa a precio x${[3,10,20][next]}. Con lo que ya elegiste, hoy te ahorrarías ${money(save)}.`}}
+function orderMessage(){
+  const ti=priceTier(),out=["Hola Bona Street! Quiero hacer este pedido mayorista:",""];
+  const cs=COMBOS.filter(c=>state.combos[c.id]);
+  if(cs.length){out.push("PACKS");cs.forEach(c=>out.push(`• ${state.combos[c.id]}× ${c.name} (${c.calc.u} prendas) — ${money(comboAt(c,ti).final*state.combos[c.id])}`));out.push("(Talles y colores del pack: los coordinamos por acá)");out.push("")}
+  const byLine={};Object.values(state.cart).forEach(i=>{(byLine[i.id]=byLine[i.id]||[]).push(i)});const ids=Object.keys(byLine);
+  if(ids.length){out.push(`PRENDAS SUELTAS (precio x${[3,10,20][ti]})`);ids.forEach(id=>{const l=BYID[id],its=byLine[id],u=its.reduce((s,i)=>s+i.qty,0);out.push(`• ${l.name} — ${its.map(i=>`${i.size==="U"?"único":i.size}${i.color?" "+i.color:""} ×${i.qty}`).join(", ")} — ${u} × ${money(l.t[ti])} = ${money(u*l.t[ti])}`)});out.push("")}
+  out.push(`Precio x${[3,10,20][ti]} (${totalUnits()} prendas en total)`);out.push("TOTAL: "+money(grandTotal()));out.push("Pago por transferencia o efectivo. Retiro / envío a: ");if(SRC)out.push("Origen: "+SRC);out.push("");
+  out.push("— Para reservar tu pedido: señá y la mercadería queda apartada. En San Juan tenés 7 días hábiles para retirar. Para despachar: realizá el pago al alias *bonastreet* (cuenta de Mercado Pago a nombre de Alba Lucía Segovia Noguera) así generamos tu etiqueta de envío. ¡Tu pedido sale dentro de las próximas 24 hs!");
   return out.join("\n");
 }
-function cartSheet() {
-  const ti = priceTier(), lu = looseUnits();
-  let h = `<div class="hd"><div><h3 id="sheetTitle">Mi pedido</h3><p>${lu} ${lu === 1 ? "prenda suelta" : "prendas sueltas"}${comboUnits() ? " + combos" : ""}</p></div><button class="x" type="button" data-close aria-label="Cerrar">×</button></div>`;
-  if (!lu && !comboUnits()) return h + `<p class="empty">Todavía no sumaste nada. Elegí un combo o entrá al catálogo.</p><div class="acts"><button class="btn" type="button" data-close>Seguir viendo</button></div>`;
-  const nt = nextTierInfo();
-  if (nt) h += `<div class="nudge${nt.warn ? " warn" : ""}">${esc(nt.text)}</div>`;
-  const tu = totalUnits();
-  if (tu) {
-    const w = n => Math.max(0, Math.min(100, n)) + "%";
-    h += `<div class="meter" aria-hidden="true"><i style="--w:${w(tu / 3 * 100)}"></i><i style="--w:${w((tu - 3) / 7 * 100)}"></i><i style="--w:${w((tu - 10) / 10 * 100)}"></i></div><div class="meter-l"><span>x3 · 3</span><span>x10 · 10</span><span>x20 · 20</span></div>`;
-  }
-  const cs = COMBOS.filter(c => state.combos[c.id]);
-  if (cs.length) {
-    h += `<p class="group-h">Combos</p>`;
-    h += cs.map(c => `<div class="vrow"><div class="l"><b>${esc(c.name)}</b><small>${c.calc.u} prendas · ${money(comboAt(c, ti).final)} el combo</small></div><div class="stp"><button type="button" data-cdec="${c.id}" aria-label="Quitar un combo">−</button><output>${state.combos[c.id]}</output><button type="button" data-cinc="${c.id}" aria-label="Sumar un combo">+</button></div></div>`).join("");
-  }
-  const byLine = {};
-  Object.values(state.cart).forEach(i => { (byLine[i.id] = byLine[i.id] || []).push(i); });
-  const ids = Object.keys(byLine);
-  if (ids.length) {
-    h += `<p class="group-h">Prendas sueltas · precio x${[3,10,20][ti]}</p>`;
-    h += ids.map(id => {
-      const l = BYID[id];
-      return `<div style="padding:6px 0"><b style="font-weight:800">${esc(l.name)}</b> <span class="mono" style="color:var(--muted);font-size:.8rem">${money(l.t[ti])} c/u</span>` +
-        byLine[id].map(i => {
-          const v = {size:i.size, color:i.color, stock:i.stock}, k = esc(vKey(id, v));
-          return `<div class="vrow" style="border-top:0;padding:4px 0"><div class="l"><small>${esc(sizeLabel(i.size))}${i.color ? " · " + esc(i.color) : ""}</small></div><div class="stp"><button type="button" data-dec="${k}" aria-label="Quitar una">−</button><output>${i.qty}</output><button type="button" data-inc="${k}" aria-label="Sumar una" ${i.qty < i.stock ? "" : "disabled"}>+</button></div></div>`;
-        }).join("") + `</div>`;
-    }).join("");
-  }
-  const msg = orderMessage();
-  const url = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg);
-  h += `<div class="sum"><span>Total del pedido</span><b>${money(grandTotal())}</b></div>
-    <p class="fine">Pago por transferencia o efectivo (12% ya aplicado). Sin seña. Despachamos dentro de las 24 h; el envío corre por cuenta del cliente. El precio sale por el total de prendas del pedido, combos incluidos.</p>
-    <div class="acts">
-      <div class="row"><a class="btn${canSend() ? "" : " is-off"}" href="${esc(url)}" target="_blank" rel="noopener">Enviar por WhatsApp</a><button class="btn line${canSend() ? "" : " is-off"}" type="button" data-copy>Copiar pedido</button></div>
-      <button class="link" type="button" data-clear>Vaciar pedido</button>
-    </div>
-    <p class="fine" id="copyNote"></p>`;
+function cartSheet(){
+  const ti=priceTier(),lu=looseUnits();
+  let h=`<div class="hd"><div><h3 id="sheetTitle">Mi pedido</h3><p>${lu} ${lu===1?"prenda suelta":"prendas sueltas"}${comboUnits()?" + packs":""}</p></div><button class="x" type="button" data-close aria-label="Cerrar">×</button></div>`;
+  if(!lu&&!comboUnits())return h+`<p class="empty">Todavía no sumaste nada. Elegí un pack o entrá al catálogo.</p><div class="acts"><button class="btn" type="button" data-close>Seguir viendo</button></div>`;
+  const nt=nextTierInfo();if(nt)h+=`<div class="nudge${nt.warn?" warn":""}">${esc(nt.text)}</div>`;
+  const tu=totalUnits();
+  if(tu){const w=n=>Math.max(0,Math.min(100,n))+"%";h+=`<div class="meter" aria-hidden="true"><i style="--w:${w(tu/3*100)}"></i><i style="--w:${w((tu-3)/7*100)}"></i><i style="--w:${w((tu-10)/10*100)}"></i></div><div class="meter-l"><span>x3 · 3</span><span>x10 · 10</span><span>x20 · 20</span></div>`}
+  const cs=COMBOS.filter(c=>state.combos[c.id]);
+  if(cs.length){h+=`<p class="group-h">Packs</p>`+cs.map(c=>`<div class="vrow"><div class="l"><b>${esc(c.name)}</b><small>${c.calc.u} prendas · ${money(comboAt(c,ti).final)} el pack</small></div><div class="stp"><button type="button" data-cdec="${c.id}" aria-label="Quitar un pack">−</button><output>${state.combos[c.id]}</output><button type="button" data-cinc="${c.id}" aria-label="Sumar un pack">+</button></div></div>`).join("")}
+  const byLine={};Object.values(state.cart).forEach(i=>{(byLine[i.id]=byLine[i.id]||[]).push(i)});const ids=Object.keys(byLine);
+  if(ids.length){h+=`<p class="group-h">Prendas sueltas · precio x${[3,10,20][ti]}</p>`+ids.map(id=>{const l=BYID[id];return `<div style="padding:6px 0"><b style="font-weight:800">${esc(l.name)}</b> <span class="mono" style="color:var(--muted);font-size:.8rem">${money(l.t[ti])} c/u</span>`+byLine[id].map(i=>{const v={size:i.size,color:i.color,stock:i.stock},k=esc(vKey(id,v));return `<div class="vrow" style="border-top:0;padding:4px 0"><div class="l"><small>${esc(sizeLabel(i.size))}${i.color?" · "+esc(i.color):""}</small></div><div class="stp"><button type="button" data-dec="${k}" aria-label="Quitar una">−</button><output>${i.qty}</output><button type="button" data-inc="${k}" aria-label="Sumar una" ${i.qty<i.stock?"":"disabled"}>+</button></div></div>`}).join("")+`</div>`}).join("")}
+  const url="https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(orderMessage());
+  h+=`<div class="sum"><span>Total del pedido</span><b>${money(grandTotal())}</b></div><p class="fine">Pago por transferencia o efectivo (12% ya aplicado). Mínimo 3 unidades surtidas. Con la seña, la mercadería queda reservada; en San Juan tenés 7 días hábiles para retirar. Despachamos dentro de las 24 h; el envío corre por cuenta del cliente. El precio sale por el total de prendas del pedido, packs incluidos.</p><div class="acts"><div class="row"><a class="btn${canSend()?"":" is-off"}" href="${esc(url)}" target="_blank" rel="noopener">Enviar por WhatsApp</a><button class="btn line${canSend()?"":" is-off"}" type="button" data-copy>Copiar pedido</button></div><button class="link" type="button" data-clear>Vaciar pedido</button></div><p class="fine" id="copyNote"></p>`;
   return h;
 }
-
 /* ====== EVENTOS ====== */
-document.addEventListener("click", e => {
-  const t = e.target.closest("button,a,[data-open]");
-  if (!t) return;
-  const d = t.dataset;
-  if (d.niche) { state.niche = d.niche; state.type = "all"; renderTabs(); renderGrid(); return; }
-  if (d.type) { state.type = d.type; renderTabs(); renderGrid(); return; }
-  if (d.open) { openSheet("var", d.open); return; }
-  if (d.combo) { setCombo(d.combo, (state.combos[d.combo] || 0) + 1); return; }
-  if (d.close !== undefined) { closeSheet(); return; }
-  if (d.gocart !== undefined) { openSheet("cart"); return; }
-  if (d.inc || d.dec) {
-    const k = d.inc || d.dec, [id, size, color] = k.split("~"), l = BYID[id];
-    const v = l.vars.find(x => x.size === size && x.color === color);
-    const cur = (state.cart[k] || {}).qty || 0;
-    setQty(id, v, cur + (d.inc ? 1 : -1)); return;
-  }
-  if (d.cinc) { setCombo(d.cinc, (state.combos[d.cinc] || 0) + 1); return; }
-  if (d.cdec) { setCombo(d.cdec, (state.combos[d.cdec] || 0) - 1); return; }
-  if (d.clear !== undefined) { state.cart = {}; state.combos = {}; refresh(); return; }
-  if (d.copy !== undefined) {
-    const msg = orderMessage(), note = $("copyNote");
-    const fallback = () => { note.innerHTML = `Seleccioná y copiá el mensaje:<textarea class="msg" readonly id="msgBox"></textarea>`; const b = $("msgBox"); b.value = msg; b.focus(); b.select(); };
-    try { navigator.clipboard.writeText(msg).then(() => { note.textContent = "Pedido copiado. Pegalo en el chat de WhatsApp."; }).catch(fallback); } catch (err) { fallback(); }
-    return;
-  }
-  if (t.id === "barBtn" || t.id === "topCart") { openSheet("cart"); return; }
+document.addEventListener("click",e=>{
+  const t=e.target.closest("button,a,[data-open]");if(!t)return;const d=t.dataset;
+  if(d.go){const ty=d.go;const nicheOf={Remeras:"all",Shorts:"all",Zapatillas:"all",Medias:"all"};state.niche="all";state.type=ty;renderTabs();renderGrid();$("catalogo").scrollIntoView({behavior:"smooth"});return}
+  if(d.niche){state.niche=d.niche;state.type="all";renderTabs();renderGrid();return}
+  if(d.type){state.type=d.type;renderTabs();renderGrid();return}
+  if(d.open){openSheet("var",d.open);return}
+  if(d.combo){setCombo(d.combo,(state.combos[d.combo]||0)+1);return}
+  if(d.close!==undefined){closeSheet();return}
+  if(d.gocart!==undefined){openSheet("cart");return}
+  if(d.inc||d.dec){const k=d.inc||d.dec,[id,size,color]=k.split("~"),l=BYID[id],v=l.vars.find(x=>x.size===size&&x.color===color),cur=(state.cart[k]||{}).qty||0;setQty(id,v,cur+(d.inc?1:-1));return}
+  if(d.cinc){setCombo(d.cinc,(state.combos[d.cinc]||0)+1);return}
+  if(d.cdec){setCombo(d.cdec,(state.combos[d.cdec]||0)-1);return}
+  if(d.clear!==undefined){state.cart={};state.combos={};refresh();return}
+  if(d.copy!==undefined){const msg=orderMessage(),note=$("copyNote");const fb=()=>{note.innerHTML=`Seleccioná y copiá el mensaje:<textarea class="msg" readonly id="msgBox"></textarea>`;const b=$("msgBox");b.value=msg;b.focus();b.select()};try{navigator.clipboard.writeText(msg).then(()=>{note.textContent="Pedido copiado. Pegalo en el chat de WhatsApp."}).catch(fb)}catch(err){fb()}return}
+  if(t.id==="barBtn"||t.id==="topCart"){openSheet("cart");return}
 });
-$("ov").addEventListener("click", e => { if (e.target === $("ov")) closeSheet(); });
-document.addEventListener("keydown", e => { if (e.key === "Escape" && state.sheet) closeSheet(); });
-$("q").addEventListener("input", e => { state.q = e.target.value; renderGrid(); });
+document.addEventListener("click",e=>{const a=e.target.closest('a[href^="https://wa.me"]');if(a&&!a.classList.contains("is-off")&&totalUnits()>0)pxTrack("InitiateCheckout",{value:grandTotal(),currency:"ARS",num_items:totalUnits()})});
+$("ov").addEventListener("click",e=>{if(e.target===$("ov"))closeSheet()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&state.sheet)closeSheet()});
+$("q").addEventListener("input",e=>{state.q=e.target.value;renderGrid()});
+
+/* ====== SCROLL: header, parallax, reveal ====== */
+const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+let ticking=false;
+function onScroll(){
+  if(ticking)return;ticking=true;requestAnimationFrame(()=>{ticking=false;const y=window.scrollY;
+    $("top").classList.toggle("solid",y>40);
+    if(!reduce){
+      if(y<window.innerHeight*1.4)$("wall").style.setProperty("--py",(y*.22)+"px");
+      document.querySelectorAll(".story").forEach(s=>{const r=s.getBoundingClientRect();if(r.bottom<-100||r.top>window.innerHeight+100)return;const p=(r.top-window.innerHeight/2)/window.innerHeight;s.querySelectorAll(".ph img").forEach(im=>{im.style.setProperty("--sy",(p*(+im.dataset.sp||.05)*500)+"px")})});
+    }
+  });
+}
+window.addEventListener("scroll",onScroll,{passive:true});
+function observe(){
+  const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add("in");const c=en.target.querySelector("[data-count]");if(c&&!c.dataset.done){c.dataset.done=1;if(!reduce)countUp(c);else c.textContent=money(+c.dataset.count)}io.unobserve(en.target)}}),{threshold:.14,rootMargin:"0px 0px -6% 0px"});
+  document.querySelectorAll(".rv").forEach(el=>io.observe(el));
+}
 
 /* ====== INICIO ====== */
-$("stockDate").textContent = STOCK_DATE;
-renderStairs(); renderCombos(); renderTabs(); renderGrid(); refresh();
-document.addEventListener('click', e => { const a = e.target.closest('a[href^="https://wa.me"]'); if (a && !a.classList.contains('is-off') && totalUnits() > 0) pxTrack('InitiateCheckout', {value: grandTotal(), currency: 'ARS', num_items: totalUnits()}); });
+$("stockDate").textContent=STOCK_DATE;
+buildWall();buildTicker();renderStairs();buildStack();renderCombos();renderTabs();renderGrid();refresh();observe();onScroll();
 </script>
+</body>
+</html>
